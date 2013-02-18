@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">MediaCodecQuery</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="codec_name">Codec</string>
+    <string name="codec_fullname">Codec</string>
 
 </resources>
