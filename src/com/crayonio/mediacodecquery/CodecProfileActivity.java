@@ -78,7 +78,6 @@ public class CodecProfileActivity extends FragmentActivity {
 
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		super.onBackPressed();
 		// Log.i("Details Activity","Back pressed.");
 		overridePendingTransition(R.anim.details_activity_slide_enter,
@@ -210,13 +209,10 @@ public class CodecProfileActivity extends FragmentActivity {
 
 			if (sectionNum == PROFILE_POSITION) {
 
-				final ArrayList<CodecProfileLevel> profileLevelList = new ArrayList<MediaCodecInfo.CodecProfileLevel>(
-						Arrays.asList(profileLevels));
-
 				myListView.setAdapter(new ArrayAdapter<CodecProfileLevel>(
 						getActivity().getApplicationContext(),
 						R.layout.codec_profile_row, R.id.tvCodecName,
-						profileLevelList) {
+						profileLevels) {
 
 					@Override
 					public View getView(int position, View convertView,
@@ -229,8 +225,7 @@ public class CodecProfileActivity extends FragmentActivity {
 						CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
 								.getInstance();
 
-						CodecProfileLevel thisProfile = profileLevelList
-								.get(position);
+						CodecProfileLevel thisProfile = profileLevels[position];
 
 						TextView profile = (TextView) rowView
 								.findViewById(R.id.tvCodecName);
@@ -243,7 +238,7 @@ public class CodecProfileActivity extends FragmentActivity {
 						else if (profileVerbosity.get(position))
 							profile.setText(String.valueOf(thisProfile.profile));
 						else
-							profile.setText("");
+							profile.setText("undefined");
 
 						String translatedLevel = profileTranslator
 								.getLevel(thisProfile.level);
@@ -253,46 +248,47 @@ public class CodecProfileActivity extends FragmentActivity {
 							level.setText("0x"
 									+ Integer.toHexString(thisProfile.level));
 						else
-							level.setText("");
+							level.setText("undefined");
 
 						return rowView;
 					}
 				});
 
 			} else if (sectionNum == COLOR_POSITION) {
+				
+				CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
+						.getInstance();
 
-				final ArrayList<Integer> colorFormatList = new ArrayList<Integer>();
+				final ArrayList<String> colorFormatList = new ArrayList<String>();
 				for (int index = 0; index < colorFormats.length; index++) {
-					colorFormatList.add(colorFormats[index]);
+					String translatedProfile = colorTranslator.getColorFormat(colorFormats[index]);
+					if (translatedProfile != null)
+						colorFormatList.add(translatedProfile);
+					else 
+						colorFormatList.add("0x" + Integer.toHexString(colorFormats[index]));
 				}
 
-				myListView.setAdapter(new ArrayAdapter<Integer>(
+				myListView.setAdapter(new ArrayAdapter<String>(
 						getActivity().getApplicationContext(),
 						R.layout.codec_color_row, R.id.tvCodecName,
 						colorFormatList) {
 
 					public View getView(int position, View convertView,
 							ViewGroup parent) {
-						
-						CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
-								.getInstance();
-
+					
 						// Must always return just a View.
 						View rowView = super.getView(position, convertView,
 								parent);
 						
-						Integer thisColorFormat = colorFormatList.get(position);
+						String thisColorFormat = colorFormatList.get(position);
 
 						TextView profile = (TextView) rowView
 								.findViewById(R.id.tvCodecName);
-						String translatedProfile = colorTranslator
-								.getColorFormat(thisColorFormat.intValue());
-						if (translatedProfile != null)
-							profile.setText(translatedProfile);
-						else if (colorVerbosity.get(position))
-							profile.setText("0x" + Integer.toHexString(thisColorFormat));
+						
+						if (!thisColorFormat.startsWith("0x") || colorVerbosity.get(position))
+							profile.setText(thisColorFormat);
 						else
-							profile.setText("");
+							profile.setText("undefined");
 						
 						return rowView;
 					}
