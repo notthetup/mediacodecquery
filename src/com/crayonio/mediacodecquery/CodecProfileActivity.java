@@ -1,5 +1,6 @@
 package com.crayonio.mediacodecquery;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -51,11 +52,11 @@ public class CodecProfileActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_profile);
 
-		if (codecIndex < 0){
-		selectedType = getIntent().getStringExtra(
-				CodecDetailsActivity.SELECTED_TYPE);
-		codecIndex = getIntent().getIntExtra(CodecDetailsActivity.CODEC_INDEX,
-				-1);
+		if (codecIndex < 0) {
+			selectedType = getIntent().getStringExtra(
+					CodecDetailsActivity.SELECTED_TYPE);
+			codecIndex = getIntent().getIntExtra(
+					CodecDetailsActivity.CODEC_INDEX, -1);
 		}
 
 		// Create the adapter that will return a fragment for each of the three
@@ -186,8 +187,10 @@ public class CodecProfileActivity extends FragmentActivity {
 			String selectedType = getArguments().getString(SELECTED_TYPE);
 			int codecIndex = getArguments().getInt(CODEC_INDEX);
 
-			/*Log.i("Codec Profile Fragment", " Showing " + selectedType
-					+ " of codec " + codecIndex + " in " + sectionNum);*/
+			/*
+			 * Log.i("Codec Profile Fragment", " Showing " + selectedType +
+			 * " of codec " + codecIndex + " in " + sectionNum);
+			 */
 
 			if (cachedCodecIndex != codecIndex) {
 
@@ -209,10 +212,27 @@ public class CodecProfileActivity extends FragmentActivity {
 
 			if (sectionNum == PROFILE_POSITION) {
 
-				myListView.setAdapter(new ArrayAdapter<CodecProfileLevel>(
+				CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
+						.getInstance();
+				
+				final ArrayList<CodecProfileStrings> codecProfileStrings = new ArrayList<CodecProfileStrings>();
+				
+				for (CodecProfileLevel thisProfile : profileLevels) {
+						String translatedProfile = profileTranslator.getProfile(thisProfile.profile);
+					if (translatedProfile == null)
+						translatedProfile = (String.valueOf(thisProfile.profile));
+
+					String translatedLevel = profileTranslator.getLevel(thisProfile.level);
+					if (translatedLevel == null)
+						translatedLevel = ("0x"	+ Integer.toHexString(thisProfile.level));
+					
+					codecProfileStrings.add(new CodecProfileStrings(translatedProfile, translatedLevel));
+				}
+
+				myListView.setAdapter(new ArrayAdapter<CodecProfileStrings>(
 						getActivity().getApplicationContext(),
 						R.layout.codec_profile_row, R.id.tvCodecName,
-						profileLevels) {
+						codecProfileStrings) {
 
 					@Override
 					public View getView(int position, View convertView,
@@ -225,28 +245,20 @@ public class CodecProfileActivity extends FragmentActivity {
 						CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
 								.getInstance();
 
-						CodecProfileLevel thisProfile = profileLevels[position];
+						CodecProfileStrings thisProfile = codecProfileStrings.get(position);
 
 						TextView profile = (TextView) rowView
 								.findViewById(R.id.tvCodecName);
 						TextView level = (TextView) rowView
 								.findViewById(R.id.tvCodecNameFull);
-						String translatedProfile = profileTranslator
-								.getProfile(thisProfile.profile);
-						if (translatedProfile != null)
-							profile.setText(translatedProfile);
-						else if (profileVerbosity.get(position))
-							profile.setText(String.valueOf(thisProfile.profile));
+
+						if (!thisProfile.getProfileName().startsWith("0x") || profileVerbosity.get(position))
+							profile.setText(thisProfile.getProfileName());
 						else
 							profile.setText("undefined");
 
-						String translatedLevel = profileTranslator
-								.getLevel(thisProfile.level);
-						if (translatedLevel != null)
-							level.setText(translatedLevel);
-						else if (profileVerbosity.get(position))
-							level.setText("0x"
-									+ Integer.toHexString(thisProfile.level));
+						if (!thisProfile.getLevelName().startsWith("0x") || profileVerbosity.get(position))
+							level.setText(thisProfile.getLevelName());
 						else
 							level.setText("undefined");
 
@@ -255,41 +267,43 @@ public class CodecProfileActivity extends FragmentActivity {
 				});
 
 			} else if (sectionNum == COLOR_POSITION) {
-				
+
 				CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
 						.getInstance();
 
 				final ArrayList<String> colorFormatList = new ArrayList<String>();
 				for (int index = 0; index < colorFormats.length; index++) {
-					String translatedProfile = colorTranslator.getColorFormat(colorFormats[index]);
+					String translatedProfile = colorTranslator
+							.getColorFormat(colorFormats[index]);
 					if (translatedProfile != null)
 						colorFormatList.add(translatedProfile);
-					else 
-						colorFormatList.add("0x" + Integer.toHexString(colorFormats[index]));
+					else
+						colorFormatList.add("0x"
+								+ Integer.toHexString(colorFormats[index]));
 				}
 
-				myListView.setAdapter(new ArrayAdapter<String>(
-						getActivity().getApplicationContext(),
-						R.layout.codec_color_row, R.id.tvCodecName,
-						colorFormatList) {
+				myListView.setAdapter(new ArrayAdapter<String>(getActivity()
+						.getApplicationContext(), R.layout.codec_color_row,
+						R.id.tvCodecName, colorFormatList) {
 
 					public View getView(int position, View convertView,
 							ViewGroup parent) {
-					
+
 						// Must always return just a View.
 						View rowView = super.getView(position, convertView,
 								parent);
-						
+
 						String thisColorFormat = colorFormatList.get(position);
 
 						TextView profile = (TextView) rowView
 								.findViewById(R.id.tvCodecName);
-						
-						if (!thisColorFormat.startsWith("0x") || colorVerbosity.get(position))
+
+						if (!thisColorFormat.startsWith("0x")
+								|| colorVerbosity.get(position))
 							profile.setText(thisColorFormat);
 						else
 							profile.setText("undefined");
-						
+
 						return rowView;
 					}
 				});
@@ -330,5 +344,23 @@ public class CodecProfileActivity extends FragmentActivity {
 
 		}
 	}
+}
 
+class CodecProfileStrings {
+
+	private String profileName;
+	private String levelName;
+
+	public CodecProfileStrings(String profileName, String levelName) {
+		this.profileName = profileName;
+		this.levelName = levelName;
+	}
+
+	public String getLevelName() {
+		return levelName;
+	}
+
+	public String getProfileName() {
+		return profileName;
+	}
 }
