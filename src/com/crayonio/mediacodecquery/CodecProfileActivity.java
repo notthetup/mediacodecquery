@@ -214,24 +214,29 @@ public class CodecProfileActivity extends FragmentActivity {
 
 				CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
 						.getInstance();
-				
-				final ArrayList<CodecProfileStrings> codecProfileStrings = new ArrayList<CodecProfileStrings>();
-				
-				for (CodecProfileLevel thisProfile : profileLevels) {
-						String translatedProfile = profileTranslator.getProfile(thisProfile.profile);
-					if (translatedProfile == null)
-						translatedProfile = (String.valueOf(thisProfile.profile));
 
-					String translatedLevel = profileTranslator.getLevel(thisProfile.level);
+				final ArrayList<CodecProfileStrings> codecProfileStrings = new ArrayList<CodecProfileStrings>();
+
+				for (CodecProfileLevel thisProfile : profileLevels) {
+					String translatedProfile = profileTranslator
+							.getProfile(thisProfile.profile);
+					if (translatedProfile == null)
+						translatedProfile = (String
+								.valueOf(thisProfile.profile));
+
+					String translatedLevel = profileTranslator
+							.getLevel(thisProfile.level);
 					if (translatedLevel == null)
-						translatedLevel = ("0x"	+ Integer.toHexString(thisProfile.level));
-					
-					codecProfileStrings.add(new CodecProfileStrings(translatedProfile, translatedLevel));
+						translatedLevel = ("0x" + Integer
+								.toHexString(thisProfile.level));
+
+					codecProfileStrings.add(new CodecProfileStrings(
+							translatedProfile, translatedLevel));
 				}
 
 				myListView.setAdapter(new ArrayAdapter<CodecProfileStrings>(
 						getActivity().getApplicationContext(),
-						R.layout.codec_profile_row, R.id.tvCodecName,
+						R.layout.codec_profile_row, R.id.profileName,
 						codecProfileStrings) {
 
 					@Override
@@ -245,22 +250,30 @@ public class CodecProfileActivity extends FragmentActivity {
 						CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
 								.getInstance();
 
-						CodecProfileStrings thisProfile = codecProfileStrings.get(position);
+						CodecProfileStrings thisProfile = codecProfileStrings
+								.get(position);
 
 						TextView profile = (TextView) rowView
-								.findViewById(R.id.tvCodecName);
+								.findViewById(R.id.profileName);
 						TextView level = (TextView) rowView
-								.findViewById(R.id.tvCodecNameFull);
+								.findViewById(R.id.levelName);
 
-						if (!thisProfile.getProfileName().startsWith("0x") || profileVerbosity.get(position))
+						if (!thisProfile.getProfileName().startsWith("0x")
+								|| profileVerbosity.get(position))
 							profile.setText(thisProfile.getProfileName());
 						else
-							profile.setText("undefined");
+							profile.setText(R.string.undefined);
 
-						if (!thisProfile.getLevelName().startsWith("0x") || profileVerbosity.get(position))
+						if (!thisProfile.getLevelName().startsWith("0x")
+								|| profileVerbosity.get(position)) {
 							level.setText(thisProfile.getLevelName());
-						else
-							level.setText("undefined");
+							((TextView) rowView.findViewById(R.id.tapPrompt))
+									.setVisibility(View.INVISIBLE);
+						} else {
+							level.setText(R.string.undefined);
+							((TextView) rowView.findViewById(R.id.tapPrompt))
+									.setVisibility(View.VISIBLE);
+						}
 
 						return rowView;
 					}
@@ -284,7 +297,7 @@ public class CodecProfileActivity extends FragmentActivity {
 
 				myListView.setAdapter(new ArrayAdapter<String>(getActivity()
 						.getApplicationContext(), R.layout.codec_color_row,
-						R.id.tvCodecName, colorFormatList) {
+						R.id.colorName, colorFormatList) {
 
 					public View getView(int position, View convertView,
 							ViewGroup parent) {
@@ -295,14 +308,18 @@ public class CodecProfileActivity extends FragmentActivity {
 
 						String thisColorFormat = colorFormatList.get(position);
 
-						TextView profile = (TextView) rowView
-								.findViewById(R.id.tvCodecName);
+						TextView colorField = (TextView) rowView
+								.findViewById(R.id.colorName);
 
 						if (!thisColorFormat.startsWith("0x")
-								|| colorVerbosity.get(position))
-							profile.setText(thisColorFormat);
-						else
-							profile.setText("undefined");
+								|| colorVerbosity.get(position)){
+							colorField.setText(thisColorFormat);
+							((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.INVISIBLE);
+						}
+						else{
+							colorField.setText(R.string.undefined);
+							((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.VISIBLE);
+						}
 
 						return rowView;
 					}
@@ -318,8 +335,10 @@ public class CodecProfileActivity extends FragmentActivity {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 			toggleVerbosity(position);
-			Log.i("Codec Profile Activity", " Invalidating " + position + " : "
-					+ view.toString());
+			/*
+			 * Log.i("Codec Profile Activity", " Invalidating " + position +
+			 * " : " + view.toString());
+			 */
 			if (sectionNum == PROFILE_POSITION)
 				((ArrayAdapter<CodecProfileLevel>) myListView.getAdapter())
 						.notifyDataSetChanged();

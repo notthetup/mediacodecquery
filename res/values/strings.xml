@@ -5,6 +5,11 @@
     <string name="menu_settings">Settings</string>
     <string name="codec_name">Codec</string>
     <string name="codec_fullname">Codec</string>
+    <string name="profile_name">Profile</string>
+    <string name="profile_level_name">Profile Level</string>
+    <string name="color_name">Color Format</string>
+    <string name="tap_prompt">(tap here to see the hex code)</string>
+    <string name="undefined">undefined</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_codec_details">CodecDetailsActivity</string>
     <string name="title_activity_codec_profile">CodecProfileActivity</string>

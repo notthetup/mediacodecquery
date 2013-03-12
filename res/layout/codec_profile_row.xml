@@ -5,30 +5,42 @@
     android:background="@drawable/list_element"
     android:orientation="horizontal"
     android:padding="5dip" >
+
     <!-- Codec -->
 
     <TextView
-        android:id="@+id/tvCodecName"
+        android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:paddingBottom="10dip"
-        android:text="@string/codec_name"
+        android:text="@string/profile_name"
         android:textColor="#040404"
         android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
     <TextView
-        android:id="@+id/tvCodecNameFull"
+        android:id="@+id/levelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvCodecName"
-        android:layout_below="@+id/tvCodecName"
+        android:layout_alignLeft="@+id/profileName"
+        android:layout_below="@+id/profileName"
         android:layout_centerHorizontal="true"
         android:paddingTop="5dip"
-        android:text="@string/codec_fullname"
+        android:text="@string/profile_level_name"
         android:textColor="#343434"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tapPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dip"
+        android:text="@string/tap_prompt"
+        android:textColor="#343434"
+        android:textSize="9sp" />
 
 </RelativeLayout>

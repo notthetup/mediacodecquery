@@ -36,7 +36,7 @@ OnItemClickListener {
 		// setListAdapter(new ArrayAdapter<String>(this,
 		// R.layout.codec_list_row, R.id.tvCodecNameFull , codecFullNames));
 		setListAdapter(new ArrayAdapter<CodecInfo>(this,
-				R.layout.codec_list_row, R.id.tvCodecName, codecInfoList) {
+				R.layout.codec_list_row, R.id.codecName, codecInfoList) {
 
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
@@ -47,9 +47,9 @@ OnItemClickListener {
 				CodecInfo entry = codecInfoList.get(position);
 
 				TextView name = (TextView) rowView
-						.findViewById(R.id.tvCodecName);
+						.findViewById(R.id.codecName);
 				TextView fullName = (TextView) rowView
-						.findViewById(R.id.tvCodecNameFull);
+						.findViewById(R.id.codecFullName);
 				name.setText(entry.getCodecName());
 				fullName.setText(entry.getFullName());
 

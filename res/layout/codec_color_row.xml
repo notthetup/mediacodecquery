@@ -5,18 +5,31 @@
     android:background="@drawable/list_element"
     android:orientation="horizontal"
     android:padding="5dip" >
+
     <!-- Codec -->
 
     <TextView
-        android:id="@+id/tvCodecName"
+        android:id="@+id/colorName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:paddingBottom="10dip"
-        android:text="@string/codec_name"
+        android:text="@string/color_name"
         android:textColor="#040404"
         android:textSize="17sp"
         android:textStyle="bold"
         android:typeface="sans" />
+    
 
+    <TextView
+        android:id="@+id/tapPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="5dip"
+        android:text="@string/tap_prompt"
+        android:textColor="#343434"
+        android:textSize="9sp" />
+    
 </RelativeLayout>

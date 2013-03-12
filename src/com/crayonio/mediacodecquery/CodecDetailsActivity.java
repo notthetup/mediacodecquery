@@ -47,7 +47,7 @@ public class CodecDetailsActivity extends ListActivity implements
 			// types.toString());
 
 			setListAdapter(new ArrayAdapter<String>(this,
-					R.layout.codec_detail_row, R.id.tvCodecName, types));
+					R.layout.codec_detail_row, R.id.codecDetails, types));
 		} else
 			Log.w("Codec Details Activity", "No codec Index ");
 

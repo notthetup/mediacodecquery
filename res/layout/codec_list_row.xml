@@ -30,7 +30,7 @@
     <!-- Codec -->
 
     <TextView
-        android:id="@+id/tvCodecName"
+        android:id="@+id/codecName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -42,11 +42,11 @@
         android:typeface="sans" />
 
     <TextView
-        android:id="@+id/tvCodecNameFull"
+        android:id="@+id/codecFullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvCodecName"
-        android:layout_below="@+id/tvCodecName"
+        android:layout_alignLeft="@+id/codecName"
+        android:layout_below="@+id/codecName"
         android:layout_centerHorizontal="true"
         android:paddingTop="5dip"
         android:text="@string/codec_fullname"
