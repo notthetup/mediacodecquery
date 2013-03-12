@@ -22,6 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.crayonio.mediacodecquery.CodecDetailsActivity"
+            android:label="@string/title_activity_codec_details"
+            android:parentActivityName="com.crayonio.mediacodecquery.CodecListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crayonio.mediacodecquery.CodecListActivity" />
+        </activity>
+        <activity
+            android:name="com.crayonio.mediacodecquery.CodecProfileActivity"
+            android:label="@string/title_activity_codec_profile"
+            android:parentActivityName="com.crayonio.mediacodecquery.CodecListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crayonio.mediacodecquery.CodecListActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:background="@drawable/list_element"
     android:orientation="horizontal"
     android:padding="5dip" >
-
+    
     <!-- Rightend Arrow -->
 
     <ImageView
@@ -17,16 +17,6 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/navigation_next_item_dark" />
     
-    <ImageView
-        android:id="@+id/directionImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="15dip"
-        android:layout_toLeftOf="@+id/imageView1"
-        android:layout_centerVertical = "true"
-        android:contentDescription="@string/app_name" />
-       <!-- android:src="@drawable/av_repeat" -->
-    
     <!-- Codec -->
 
     <TextView
@@ -34,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:paddingTop="10dip"
         android:paddingBottom="10dip"
         android:text="@string/codec_name"
         android:textColor="#040404"
@@ -41,16 +32,5 @@
         android:textStyle="bold"
         android:typeface="sans" />
 
-    <TextView
-        android:id="@+id/tvCodecNameFull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvCodecName"
-        android:layout_below="@+id/tvCodecName"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="5dip"
-        android:text="@string/codec_fullname"
-        android:textColor="#343434"
-        android:textSize="12sp" />
 
 </RelativeLayout>
