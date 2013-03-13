@@ -89,7 +89,7 @@ public class CodecProfileActivity extends FragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
+			finish();
 			overridePendingTransition(R.anim.details_activity_slide_enter,
 					R.anim.details_activity_slide_exit);
 			return true;

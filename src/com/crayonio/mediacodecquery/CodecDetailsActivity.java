@@ -31,9 +31,15 @@ public class CodecDetailsActivity extends ListActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_details);
-		
+
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
+
+		if (savedInstanceState != null) {
+			int newCodecState = savedInstanceState.getInt(CODEC_INDEX, -1);
+			if (newCodecState >= 0)
+				codecIndex = newCodecState;
+		}
 
 		if (codecIndex < 0) {
 			codecIndex = getIntent().getIntExtra(CodecListActivity.CODEC_INDEX,
@@ -41,11 +47,7 @@ public class CodecDetailsActivity extends ListActivity implements
 		}
 		if (codecIndex >= 0 && codecIndex < MediaCodecList.getCodecCount()) {
 			thisCodecInfo = MediaCodecList.getCodecInfoAt(codecIndex);
-
 			types = thisCodecInfo.getSupportedTypes();
-			// Log.i("Details"," This Codec : " + codecIndex + " :: " +
-			// types.toString());
-
 			setListAdapter(new ArrayAdapter<String>(this,
 					R.layout.codec_detail_row, R.id.codecDetails, types));
 		} else
@@ -57,7 +59,7 @@ public class CodecDetailsActivity extends ListActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			NavUtils.navigateUpFromSameTask(this);
+			finish();
 			overridePendingTransition(R.anim.details_activity_slide_enter,
 					R.anim.details_activity_slide_exit);
 			return true;
@@ -74,38 +76,37 @@ public class CodecDetailsActivity extends ListActivity implements
 	}
 
 	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putInt(CODEC_INDEX, codecIndex);
+		Log.i("Codec Details", "Saving State!");
+	}
+
+	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		/* Log.i("OnClick", "Clicked " + arg2 + " : " + types[arg2]);
-
-		CodecCapabilities capabalities = thisCodecInfo
-				.getCapabilitiesForType(types[arg2]);
-
-		CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
-				.getInstance();
-		CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
-				.getInstance();
-
-		int[] colorFormats = capabalities.colorFormats;
-		CodecProfileLevel[] profileLevels = capabalities.profileLevels;
-
-		for (CodecProfileLevel codecProfileLevel : profileLevels) {
-			Log.i("Profile Level",
-					codecProfileLevel.profile
-							+ " : "
-							+ codecProfileLevel.level
-							+ " <> "
-							+ profileTranslator
-									.getProfile(codecProfileLevel.profile)
-							+ " : "
-							+ profileTranslator
-									.getLevel(codecProfileLevel.level));
-		}
-
-		for (int colorFormat : colorFormats) {
-			Log.i("Color Format",
-					colorFormat + " > "
-							+ colorTranslator.getColorFormat(colorFormat));
-		}*/
+		/*
+		 * Log.i("OnClick", "Clicked " + arg2 + " : " + types[arg2]);
+		 * 
+		 * CodecCapabilities capabalities = thisCodecInfo
+		 * .getCapabilitiesForType(types[arg2]);
+		 * 
+		 * CodecColorFormatTranslator colorTranslator =
+		 * CodecColorFormatTranslator .getInstance();
+		 * CodecProfileLevelTranslator profileTranslator =
+		 * CodecProfileLevelTranslator .getInstance();
+		 * 
+		 * int[] colorFormats = capabalities.colorFormats; CodecProfileLevel[]
+		 * profileLevels = capabalities.profileLevels;
+		 * 
+		 * for (CodecProfileLevel codecProfileLevel : profileLevels) {
+		 * Log.i("Profile Level", codecProfileLevel.profile + " : " +
+		 * codecProfileLevel.level + " <> " + profileTranslator
+		 * .getProfile(codecProfileLevel.profile) + " : " + profileTranslator
+		 * .getLevel(codecProfileLevel.level)); }
+		 * 
+		 * for (int colorFormat : colorFormats) { Log.i("Color Format",
+		 * colorFormat + " > " + colorTranslator.getColorFormat(colorFormat)); }
+		 */
 
 		Intent intent = new Intent(this, CodecProfileActivity.class);
 		intent.putExtra(CODEC_INDEX, codecIndex);
