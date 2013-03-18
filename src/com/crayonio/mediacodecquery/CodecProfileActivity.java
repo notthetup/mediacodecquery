@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 
+import android.graphics.Typeface;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.media.MediaCodecInfo.CodecProfileLevel;
@@ -66,8 +67,7 @@ public class CodecProfileActivity extends FragmentActivity {
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);
-
+		mViewPager.setAdapter(mSectionsPagerAdapter);		
 	}
 
 	@Override
@@ -167,6 +167,8 @@ public class CodecProfileActivity extends FragmentActivity {
 		private ArrayList<Boolean> colorVerbosity;
 		private int sectionNum = -1;
 
+		private Typeface robotoCondensedLight;
+		
 		private ListView myListView;
 
 		public ColorLevelFragment() {
@@ -179,6 +181,8 @@ public class CodecProfileActivity extends FragmentActivity {
 			View rootView = inflater.inflate(R.layout.fragment_codec_profile,
 					container, false);
 
+			robotoCondensedLight = Typeface.createFromAsset(getActivity().getAssets(), "RobotoCondensed-Light.ttf");
+			
 			myListView = (ListView) rootView.findViewById(R.id.profile_list);
 
 			myListView.setOnItemClickListener(this);
@@ -257,6 +261,8 @@ public class CodecProfileActivity extends FragmentActivity {
 								.findViewById(R.id.profileName);
 						TextView level = (TextView) rowView
 								.findViewById(R.id.levelName);
+						profile.setTypeface(robotoCondensedLight);
+						level.setTypeface(robotoCondensedLight);
 
 						if (!thisProfile.getProfileName().startsWith("0x")
 								|| profileVerbosity.get(position))
@@ -310,6 +316,7 @@ public class CodecProfileActivity extends FragmentActivity {
 
 						TextView colorField = (TextView) rowView
 								.findViewById(R.id.colorName);
+						colorField.setTypeface(robotoCondensedLight);
 
 						if (!thisColorFormat.startsWith("0x")
 								|| colorVerbosity.get(position)){

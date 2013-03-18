@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ OnItemClickListener {
 
 	private final ArrayList<CodecInfo> codecInfoList = new ArrayList<CodecInfo>();
 	final static String CODEC_INDEX = "codecIndex";
+	private Typeface robotoCondensedLight;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,9 @@ OnItemClickListener {
 		setContentView(R.layout.activity_codec_list);
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
-		// int codecCount = MediaCodecList.getCodecCount();
-
-		// setListAdapter(new ArrayAdapter<String>(this,
-		// R.layout.codec_list_row, R.id.tvCodecNameFull , codecFullNames));
+		
+		robotoCondensedLight = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Light.ttf");  
+		
 		setListAdapter(new ArrayAdapter<CodecInfo>(this,
 				R.layout.codec_list_row, R.id.codecName, codecInfoList) {
 
@@ -50,6 +51,9 @@ OnItemClickListener {
 						.findViewById(R.id.codecName);
 				TextView fullName = (TextView) rowView
 						.findViewById(R.id.codecFullName);
+				name.setTypeface(robotoCondensedLight);
+				fullName.setTypeface(robotoCondensedLight);
+				
 				name.setText(entry.getCodecName());
 				fullName.setText(entry.getFullName());
 

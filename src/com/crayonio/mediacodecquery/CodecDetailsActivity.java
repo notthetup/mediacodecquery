@@ -3,6 +3,7 @@ package com.crayonio.mediacodecquery;
 import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.media.MediaCodecInfo.CodecProfileLevel;
@@ -12,10 +13,13 @@ import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class CodecDetailsActivity extends ListActivity implements
 		OnItemClickListener {
@@ -27,10 +31,14 @@ public class CodecDetailsActivity extends ListActivity implements
 	private int codecIndex = -1;
 	private String[] types;
 
+	private Typeface robotoCondensedLight;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_details);
+		
+		robotoCondensedLight = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Light.ttf");  
 
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
@@ -49,7 +57,26 @@ public class CodecDetailsActivity extends ListActivity implements
 			thisCodecInfo = MediaCodecList.getCodecInfoAt(codecIndex);
 			types = thisCodecInfo.getSupportedTypes();
 			setListAdapter(new ArrayAdapter<String>(this,
-					R.layout.codec_detail_row, R.id.codecDetails, types));
+					R.layout.codec_detail_row, R.id.codecDetails, types){
+				
+				@Override
+				public View getView(int position, View convertView, ViewGroup parent) {
+
+					// Must always return just a View.
+					View rowView = super.getView(position, convertView, parent);
+
+					String entry = types[position];
+
+					TextView details = (TextView) rowView
+							.findViewById(R.id.codecDetails);
+					details.setTypeface(robotoCondensedLight);
+					
+					details.setText(entry);
+
+					return rowView;
+				}
+				
+			});
 		} else
 			Log.w("Codec Details Activity", "No codec Index ");
 
