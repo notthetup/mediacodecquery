@@ -9,6 +9,7 @@
     <string name="color_name">Color Format</string>
     <string name="tap_prompt">(tap here to see the hex code)</string>
     <string name="undefined">undefined</string>
+    <string name="level">Level :\u0020</string>
     <string name="title_activity_codec_list">Supported Codecs</string>
     <string name="title_activity_codec_details">Codec Media Types</string>
     <string name="title_activity_codec_profile">Codec Profiles</string>

@@ -264,11 +264,11 @@ public class CodecProfileActivity extends FragmentActivity {
 
 						if (!thisProfile.getLevelName().startsWith("0x")
 								|| profileVerbosity.get(position)) {
-							level.setText(thisProfile.getLevelName());
+							level.setText(getResources().getString(R.string.level) + thisProfile.getLevelName());
 							((TextView) rowView.findViewById(R.id.tapPrompt))
 									.setVisibility(View.INVISIBLE);
 						} else {
-							level.setText(R.string.undefined);
+							level.setText(getResources().getString(R.string.level) + getResources().getString(R.string.undefined));
 							((TextView) rowView.findViewById(R.id.tapPrompt))
 									.setVisibility(View.VISIBLE);
 						}
