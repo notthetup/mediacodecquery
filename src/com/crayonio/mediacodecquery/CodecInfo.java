@@ -1,5 +1,10 @@
 package com.crayonio.mediacodecquery;
 
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+import android.media.MediaCodecInfo.CodecCapabilities;
 import android.util.Log;
 
 public class CodecInfo {
@@ -11,11 +16,13 @@ public class CodecInfo {
 	private boolean isEncoder = false;
 	private boolean isDecoder = false;
 	private boolean isSoftware = false;
+	private HashSet<String> supportedTypes ;
 
 	public CodecInfo(String nameString) {
 		this.origString = nameString;
+		supportedTypes = new HashSet<String>();
 
-		// Log.i("Codec Info","Spliting " + fullname);
+		Log.i("Codec Info","Spliting " + origString);
 
 		String[] tokens = nameString.split("\\.");
 
@@ -25,6 +32,7 @@ public class CodecInfo {
 				this.codecName = tokens[0];
 				this.fullName = this.codecName;
 				this.isSoftware = true;
+				this.isEncoder = true;
 				return;
 			}
 			else{
@@ -43,12 +51,12 @@ public class CodecInfo {
 
 					else if (index == tokens.length-1){
 						this.fullName = nameString;
-						if (thisToken.equalsIgnoreCase("encoder")) {
+						if (thisToken.equalsIgnoreCase("encoder") || thisToken.contains("encoder") || thisToken.contains("Encoder") || thisToken.contains("ENCODER")) {
 							this.isEncoder = true;
-							// Log.i("Codec Info","It is an encoder");
-						} else if (thisToken.equalsIgnoreCase("decoder")) {
+							Log.i("Codec Info","It is an encoder");
+						} else if (thisToken.equalsIgnoreCase("decoder") || thisToken.contains("decoder") || thisToken.contains("Decoder") || thisToken.contains("DECODER")) {
 							this.isDecoder = true;
-							// Log.i("Codec Info","It is an encoder");
+							Log.i("Codec Info","It is an encoder");
 						}
 						else{
 							this.codecName += "." + thisToken;
@@ -57,37 +65,12 @@ public class CodecInfo {
 				}
 			}
 
-			/* if (tokens.length > 1) {
-				this.manufacturerName = tokens[1];
-				// Log.i("Codec Info","Manufacturer is " + manufacturerName);
-			}
-
-			if (tokens.length > 2) {
-				this.codecName = tokens[2];
-				if (tokens.length > 3){
-					String[] subset = Arrays.copyOfRange(tokens,3,tokens.length-1);				
-					for (String string : subset) {
-						this.codecName += "."+string;
-					}
-				}
-				// Log.i("Codec Info","Codec is " + codecName);
-			}
-
-			if (tokens[tokens.length - 1].contentEquals("encoder")) {
-				this.isEncoder = true;
-				this.fullName = nameString.replaceAll("\\.encoder", "");
-				// Log.i("Codec Info","It is an encoder");
-			} else if (tokens[tokens.length - 1].contentEquals("decoder")) {
-				this.isDecoder = true;
-				this.fullName = nameString.replaceAll("\\.decoder", "");
-				// Log.i("Codec Info","It is an encoder");
-			} else{
-				this.fullName = nameString;
-			} */
-
 		} else {
 			Log.w("Codec Info", "No tokens found?? WTH?");
 		}
+		
+		if (!isEncoder)
+			isDecoder = true;
 	}
 
 	@Override
@@ -144,5 +127,18 @@ public class CodecInfo {
 			return true;
 		else
 			return false;
+	}
+
+	public void addSupportedTypes(String[] supportedTypes) {
+		this.supportedTypes.addAll(Arrays.asList(supportedTypes));
+	}
+	
+	public String [] getSupportedTypes() {
+		return (String[]) supportedTypes.toArray(new String[0]);
+	}
+
+	public CodecCapabilities getCapabilitiesForType(String selectedType) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

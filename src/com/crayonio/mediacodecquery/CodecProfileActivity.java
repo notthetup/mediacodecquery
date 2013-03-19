@@ -5,10 +5,8 @@ import java.util.Arrays;
 import java.util.Locale;
 
 import android.graphics.Typeface;
-import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.media.MediaCodecInfo.CodecProfileLevel;
-import android.media.MediaCodecList;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -157,7 +155,7 @@ public class CodecProfileActivity extends FragmentActivity {
 		 */
 		private int[] colorFormats;
 		private CodecProfileLevel[] profileLevels;
-		private MediaCodecInfo thisCodecInfo = null;
+		private CodecInfo thisCodecInfo = null;
 		private CodecCapabilities capabalities = null;
 		private int cachedCodecIndex = -1;
 
@@ -196,9 +194,8 @@ public class CodecProfileActivity extends FragmentActivity {
 
 			if (cachedCodecIndex != codecIndex) {
 
-				thisCodecInfo = MediaCodecList.getCodecInfoAt(codecIndex);
-				capabalities = thisCodecInfo
-						.getCapabilitiesForType(selectedType);
+				thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
+				capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
 				colorFormats = capabalities.colorFormats;
 				profileLevels = capabalities.profileLevels;
 				cachedCodecIndex = codecIndex;

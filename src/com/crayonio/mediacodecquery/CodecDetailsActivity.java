@@ -1,11 +1,11 @@
 package com.crayonio.mediacodecquery;
 
+import java.util.ArrayList;
+
 import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -23,7 +23,7 @@ public class CodecDetailsActivity extends ListActivity implements
 	final static String CODEC_INDEX = "codecIndex";
 	final static String SELECTED_TYPE = "selectedType";
 
-	private MediaCodecInfo thisCodecInfo;
+	private CodecInfo thisCodecInfo;
 	private int codecIndex = -1;
 	private String[] types;
 
@@ -49,8 +49,11 @@ public class CodecDetailsActivity extends ListActivity implements
 			codecIndex = getIntent().getIntExtra(CodecListActivity.CODEC_INDEX,
 					-1);
 		}
-		if (codecIndex >= 0 && codecIndex < MediaCodecList.getCodecCount()) {
-			thisCodecInfo = MediaCodecList.getCodecInfoAt(codecIndex);
+		
+		ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
+		
+		if (codecIndex >= 0 && codecIndex < codecInfoList.size()) {
+			thisCodecInfo = codecInfoList.get(codecIndex);
 			types = thisCodecInfo.getSupportedTypes();
 			setListAdapter(new ArrayAdapter<String>(this,
 					R.layout.codec_detail_row, R.id.codecDetails, types){
