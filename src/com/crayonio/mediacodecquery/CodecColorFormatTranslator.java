@@ -1,10 +1,8 @@
 package com.crayonio.mediacodecquery;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 
 import android.media.MediaCodecInfo.CodecCapabilities;
-import android.util.Log;
 import android.util.SparseArray;
 
 public class CodecColorFormatTranslator {
@@ -37,11 +35,9 @@ public class CodecColorFormatTranslator {
 					dictionary.put(field.getInt(capabilities), field.getName());
 					// Log.i("Fields","Added " + field.getName() + " : " +
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					continue;
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					continue;
 				}

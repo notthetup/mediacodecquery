@@ -1,6 +1,5 @@
 package com.crayonio.mediacodecquery;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
@@ -15,7 +14,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -251,9 +249,6 @@ public class CodecProfileActivity extends FragmentActivity {
 						View rowView = super.getView(position, convertView,
 								parent);
 
-						CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
-								.getInstance();
-
 						CodecProfileStrings thisProfile = codecProfileStrings
 								.get(position);
 
@@ -338,6 +333,7 @@ public class CodecProfileActivity extends FragmentActivity {
 			return rootView;
 		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
