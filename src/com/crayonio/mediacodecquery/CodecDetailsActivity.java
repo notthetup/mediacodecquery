@@ -96,7 +96,7 @@ public class CodecDetailsActivity extends ListActivity implements
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		// Log.i("Details Activity","Back pressed.");
+		// Log.d("Details Activity","Back pressed.");
 		overridePendingTransition(R.anim.details_activity_slide_enter,
 				R.anim.details_activity_slide_exit);
 	}
@@ -105,13 +105,13 @@ public class CodecDetailsActivity extends ListActivity implements
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt(CODEC_INDEX, codecIndex);
-		Log.i("Codec Details", "Saving State!");
+		Log.d("Codec Details", "Saving State!");
 	}
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		/*
-		 * Log.i("OnClick", "Clicked " + arg2 + " : " + types[arg2]);
+		 * Log.d("OnClick", "Clicked " + arg2 + " : " + types[arg2]);
 		 * 
 		 * CodecCapabilities capabalities = thisCodecInfo
 		 * .getCapabilitiesForType(types[arg2]);
@@ -125,12 +125,12 @@ public class CodecDetailsActivity extends ListActivity implements
 		 * profileLevels = capabalities.profileLevels;
 		 * 
 		 * for (CodecProfileLevel codecProfileLevel : profileLevels) {
-		 * Log.i("Profile Level", codecProfileLevel.profile + " : " +
+		 * Log.d("Profile Level", codecProfileLevel.profile + " : " +
 		 * codecProfileLevel.level + " <> " + profileTranslator
 		 * .getProfile(codecProfileLevel.profile) + " : " + profileTranslator
 		 * .getLevel(codecProfileLevel.level)); }
 		 * 
-		 * for (int colorFormat : colorFormats) { Log.i("Color Format",
+		 * for (int colorFormat : colorFormats) { Log.d("Color Format",
 		 * colorFormat + " > " + colorTranslator.getColorFormat(colorFormat)); }
 		 */
 

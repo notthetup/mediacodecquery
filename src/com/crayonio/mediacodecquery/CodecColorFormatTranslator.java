@@ -29,11 +29,11 @@ public class CodecColorFormatTranslator {
 		Field[] fields = capabilities.getClass().getFields();
 
 		for (Field field : fields) {
-			// Log.i("Fields", "Checking field " + field.getName());
+			// Log.d("Fields", "Checking field " + field.getName());
 			if (field.getType().isPrimitive()) {
 				try {
 					dictionary.put(field.getInt(capabilities), field.getName());
-					// Log.i("Fields","Added " + field.getName() + " : " +
+					// Log.d("Fields","Added " + field.getName() + " : " +
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
 					continue;

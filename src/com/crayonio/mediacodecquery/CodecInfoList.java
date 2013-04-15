@@ -24,7 +24,7 @@ public class CodecInfoList {
 
 		ArrayList<CodecInfo> codecInfoList = new ArrayList<CodecInfo>();
 
-		// Log.i("CodecListActivity", " This device supports");
+		// Log.d("CodecListActivity", " This device supports");
 		for (int codecIndex = 0; codecIndex < MediaCodecList.getCodecCount(); ++codecIndex) {
 			addtoCodecList(MediaCodecList.getCodecInfoAt(codecIndex),codecInfoList);
 		}

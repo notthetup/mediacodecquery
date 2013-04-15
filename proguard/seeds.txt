@@ -1,0 +1,118 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentActivity: FragmentActivity()
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context)
+android.support.v4.view.PagerTitleStrip: PagerTitleStrip(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager
+android.support.v4.view.ViewPager: ViewPager(android.content.Context)
+android.support.v4.view.ViewPager: ViewPager(android.content.Context,android.util.AttributeSet)
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener)
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+com.crayonio.mediacodecquery.CodecDetailsActivity
+com.crayonio.mediacodecquery.CodecDetailsActivity: CodecDetailsActivity()
+com.crayonio.mediacodecquery.CodecListActivity
+com.crayonio.mediacodecquery.CodecListActivity: CodecListActivity()
+com.crayonio.mediacodecquery.CodecProfileActivity
+com.crayonio.mediacodecquery.CodecProfileActivity: CodecProfileActivity()
+com.crayonio.mediacodecquery.R$anim: int details_activity_slide_enter
+com.crayonio.mediacodecquery.R$anim: int details_activity_slide_exit
+com.crayonio.mediacodecquery.R$anim: int list_activity_slide_enter
+com.crayonio.mediacodecquery.R$anim: int list_activity_slide_exit
+com.crayonio.mediacodecquery.R$dimen: int activity_horizontal_margin
+com.crayonio.mediacodecquery.R$dimen: int activity_vertical_margin
+com.crayonio.mediacodecquery.R$drawable: int codec_both
+com.crayonio.mediacodecquery.R$drawable: int codec_decoder
+com.crayonio.mediacodecquery.R$drawable: int codec_encoder
+com.crayonio.mediacodecquery.R$drawable: int gradient_bg
+com.crayonio.mediacodecquery.R$drawable: int gradient_bg_hover
+com.crayonio.mediacodecquery.R$drawable: int ic_launcher
+com.crayonio.mediacodecquery.R$drawable: int list_element
+com.crayonio.mediacodecquery.R$drawable: int navigation_next_item_dark
+com.crayonio.mediacodecquery.R$drawable: int navigation_next_item_light
+com.crayonio.mediacodecquery.R$drawable: int profile_list_element
+com.crayonio.mediacodecquery.R$id: int action_settings
+com.crayonio.mediacodecquery.R$id: int codecDetails
+com.crayonio.mediacodecquery.R$id: int codecFullName
+com.crayonio.mediacodecquery.R$id: int codecName
+com.crayonio.mediacodecquery.R$id: int colorName
+com.crayonio.mediacodecquery.R$id: int directionImage
+com.crayonio.mediacodecquery.R$id: int imageView1
+com.crayonio.mediacodecquery.R$id: int levelName
+com.crayonio.mediacodecquery.R$id: int pager
+com.crayonio.mediacodecquery.R$id: int pager_title_strip
+com.crayonio.mediacodecquery.R$id: int profileName
+com.crayonio.mediacodecquery.R$id: int profile_list
+com.crayonio.mediacodecquery.R$id: int tapPrompt
+com.crayonio.mediacodecquery.R$layout: int activity_codec_details
+com.crayonio.mediacodecquery.R$layout: int activity_codec_list
+com.crayonio.mediacodecquery.R$layout: int activity_codec_profile
+com.crayonio.mediacodecquery.R$layout: int codec_color_row
+com.crayonio.mediacodecquery.R$layout: int codec_detail_row
+com.crayonio.mediacodecquery.R$layout: int codec_list_row
+com.crayonio.mediacodecquery.R$layout: int codec_profile_row
+com.crayonio.mediacodecquery.R$layout: int fragment_codec_profile
+com.crayonio.mediacodecquery.R$menu: int codec_profile
+com.crayonio.mediacodecquery.R$menu: int main
+com.crayonio.mediacodecquery.R$string: int action_settings
+com.crayonio.mediacodecquery.R$string: int app_name
+com.crayonio.mediacodecquery.R$string: int codec_fullname
+com.crayonio.mediacodecquery.R$string: int codec_name
+com.crayonio.mediacodecquery.R$string: int color_name
+com.crayonio.mediacodecquery.R$string: int description
+com.crayonio.mediacodecquery.R$string: int level
+com.crayonio.mediacodecquery.R$string: int profile_level_name
+com.crayonio.mediacodecquery.R$string: int profile_name
+com.crayonio.mediacodecquery.R$string: int tap_prompt
+com.crayonio.mediacodecquery.R$string: int title_activity_codec_details
+com.crayonio.mediacodecquery.R$string: int title_activity_codec_list
+com.crayonio.mediacodecquery.R$string: int title_activity_codec_profile
+com.crayonio.mediacodecquery.R$string: int title_section1
+com.crayonio.mediacodecquery.R$string: int title_section2
+com.crayonio.mediacodecquery.R$string: int undefined
+com.crayonio.mediacodecquery.R$string: int version_name
+com.crayonio.mediacodecquery.R$style: int AppBaseTheme
+com.crayonio.mediacodecquery.R$style: int AppTheme

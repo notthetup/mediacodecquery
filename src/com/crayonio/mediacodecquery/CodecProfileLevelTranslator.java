@@ -34,7 +34,7 @@ public class CodecProfileLevelTranslator {
 		Field[] fields = profileLevel.getClass().getFields();
 
 		for (Field field : fields) {
-			// Log.i("Fields", "Checking field " + field.getName());
+			// Log.d("Fields", "Checking field " + field.getName());
 			if (field.getType().isPrimitive()) {
 				String fieldName = field.getName();
 				try {
@@ -44,14 +44,12 @@ public class CodecProfileLevelTranslator {
 					else if (fieldName.contains("Profile"))
 						profileDictionary.put(field.getInt(profileLevel),
 								fieldName);
-					// Log.i("Fields","Added " + field.getName() + " : " +
+					// Log.d("Fields","Added " + field.getName() + " : " +
 					// field.getInt(capabilities));
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					continue;
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					continue;
 				}

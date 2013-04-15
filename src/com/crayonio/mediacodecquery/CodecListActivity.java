@@ -54,7 +54,7 @@ public class CodecListActivity extends ListActivity implements
 				name.setText(entry.getCodecName());
 				fullName.setText(entry.getFullName());
 
-				// Log.i("GetView", "Getting rowView " + position + " : " +
+				// Log.d("GetView", "Getting rowView " + position + " : " +
 				// rowView.getId());
 
 				ImageView dirImg = (ImageView) rowView
@@ -63,7 +63,7 @@ public class CodecListActivity extends ListActivity implements
 				if (entry.isDecoder() && entry.isEncoder()) {
 					dirImg.setImageDrawable(getResources().getDrawable(
 							R.drawable.codec_both));
-					// Log.i("GetView", "Setting Image in " + position);
+					// Log.d("GetView", "Setting Image in " + position);
 				} else if (entry.isDecoder()) {
 					dirImg.setImageDrawable(getResources().getDrawable(
 							R.drawable.codec_decoder));
@@ -81,8 +81,7 @@ public class CodecListActivity extends ListActivity implements
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-		// Log.i("OnClick", "Clicked " + arg2 + " " + codecInfoList.get(arg2));
+		// Log.d("OnClick", "Clicked " + arg2 + " " + codecInfoList.get(arg2));
 		Intent intent = new Intent(this, CodecDetailsActivity.class);
 		intent.putExtra(CODEC_INDEX, arg2);
 		Bundle bndlanimation = ActivityOptions.makeCustomAnimation(

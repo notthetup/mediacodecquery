@@ -39,7 +39,7 @@ public class CodecInfo {
 	private void splitName(String nameString) {
 		this.fullName = nameString;
 
-		//Log.i("Codec Info","Spliting " + fullName);
+		//Log.d("Codec Info","Spliting " + fullName);
 
 		String[] tokens = nameString.split("\\.");
 
@@ -67,10 +67,10 @@ public class CodecInfo {
 					else if (index == tokens.length-1){
 						if (thisToken.equalsIgnoreCase("encoder") || thisToken.contains("encoder") || thisToken.contains("Encoder") || thisToken.contains("ENCODER")) {
 							this.isEncoder = true;
-							//Log.i("Codec Info","It is an encoder");
+							//Log.d("Codec Info","It is an encoder");
 						} else if (thisToken.equalsIgnoreCase("decoder") || thisToken.contains("decoder") || thisToken.contains("Decoder") || thisToken.contains("DECODER")) {
 							this.isDecoder = true;
-							//Log.i("Codec Info","It is an encoder");
+							//Log.d("Codec Info","It is an encoder");
 						}
 						else{
 							this.codecName += "." + thisToken;

@@ -76,7 +76,7 @@ public class CodecProfileActivity extends FragmentActivity {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-		// Log.i("Details Activity","Back pressed.");
+		// Log.d("Details Activity","Back pressed.");
 		overridePendingTransition(R.anim.details_activity_slide_enter,
 				R.anim.details_activity_slide_exit);
 	}
@@ -188,7 +188,7 @@ public class CodecProfileActivity extends FragmentActivity {
 			int codecIndex = getArguments().getInt(CODEC_INDEX);
 
 			/*
-			 * Log.i("Codec Profile Fragment", " Showing " + selectedType +
+			 * Log.d("Codec Profile Fragment", " Showing " + selectedType +
 			 * " of codec " + codecIndex + " in " + sectionNum);
 			 */
 
@@ -336,7 +336,7 @@ public class CodecProfileActivity extends FragmentActivity {
 				long id) {
 			toggleVerbosity(position);
 			/*
-			 * Log.i("Codec Profile Activity", " Invalidating " + position +
+			 * Log.d("Codec Profile Activity", " Invalidating " + position +
 			 * " : " + view.toString());
 			 */
 			if (sectionNum == PROFILE_POSITION)
