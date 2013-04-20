@@ -7,8 +7,10 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -26,6 +28,7 @@ public class CodecListActivity extends ListActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_list);
+		this.setTitle(getString(R.string.title_activity_codec_list));
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
 

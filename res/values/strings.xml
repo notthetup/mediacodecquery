@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MediaCodecQuery</string>
+    <string name="app_name">Media Codec Query</string>
     <string name="codec_name">Codec</string>
     <string name="codec_fullname">Codec</string>
     <string name="profile_name">Profile</string>
