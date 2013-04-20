@@ -13,9 +13,18 @@
     <string name="title_activity_codec_list">Supported Codecs</string>
     <string name="title_activity_codec_details">Codec Media Types</string>
     <string name="title_activity_codec_profile">Codec Profiles</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_email">Email</string>
     <string name="title_section1">Profiles</string>
     <string name="title_section2">Color Formats</string>
     <string name="version_name">Initial Version</string>
+    <string name="copy">Copy </string>
+    <string name="copied"> Copied to Clipboard</string>
+    <string name="copy_short_name">Codec Short Name</string>
+    <string name="copy_full_name">Codec Full Name</string>
+    <string name="copy_type">Codec Type</string>
+    <string name="copy_profile_name">Profile Name</string>
+    <string name="copy_profile_level">Profile Level</string>
+    <string name="copy_color_format">Color Format</string>
     <string name="description">Simple app which shows you a list of all the media codecs supported by your device.</string>
+
 </resources>

@@ -58,7 +58,6 @@ android.support.v4.app.Fragment:
     549:549:public final android.support.v4.app.Fragment getTargetFragment()
     556:556:public final int getTargetRequestCode()
     583:583:public final java.lang.CharSequence getText(int)
-    593:593:public final java.lang.String getString(int)
     606:606:public final varargs java.lang.String getString(int,java.lang.Object[])
     620:620:public final android.support.v4.app.FragmentManager getFragmentManager()
     628:640:public final android.support.v4.app.FragmentManager getChildFragmentManager()
@@ -74,7 +73,6 @@ android.support.v4.app.Fragment:
     819:827:public android.support.v4.app.LoaderManager getLoaderManager()
     835:839:public void startActivity(android.content.Intent)
     846:850:public void startActivityForResult(android.content.Intent,int)
-    1288:1289:public void registerForContextMenu(android.view.View)
     1299:1300:public void unregisterForContextMenu(android.view.View)
     1410:1416:android.support.v4.app.Fragment findFragmentByWho(java.lang.String)
 android.support.v4.app.Fragment$SavedState:
@@ -912,12 +910,14 @@ com.crayonio.mediacodecquery.CodecInfoList:
     12:14:public CodecInfoList()
 com.crayonio.mediacodecquery.CodecListActivity:
     static final java.lang.String CODEC_INDEX
-com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment:
+com.crayonio.mediacodecquery.CodecProfileActivity:
     public static final java.lang.String ARG_SECTION_NUMBER
     public static final java.lang.String SELECTED_TYPE
     public static final java.lang.String CODEC_INDEX
-    static final int PROFILE_POSITION
-    static final int COLOR_POSITION
+com.crayonio.mediacodecquery.ColorFragment:
+    47:47:public void ColorLevelFragment()
+com.crayonio.mediacodecquery.LevelFragment:
+    48:48:public void ColorLevelFragment()
 com.crayonio.mediacodecquery.R
 com.crayonio.mediacodecquery.R$anim
 com.crayonio.mediacodecquery.R$attr

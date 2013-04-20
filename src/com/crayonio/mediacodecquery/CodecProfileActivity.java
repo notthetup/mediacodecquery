@@ -1,10 +1,8 @@
 package com.crayonio.mediacodecquery;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 
-import android.graphics.Typeface;
+import android.content.Intent;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.media.MediaCodecInfo.CodecProfileLevel;
 import android.os.Bundle;
@@ -14,18 +12,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class CodecProfileActivity extends FragmentActivity {
+
+	public static final String ARG_SECTION_NUMBER = "sectionNum";
+	public static final String SELECTED_TYPE = "selectedType";
+	public static final String CODEC_INDEX = "codecIndex";
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -63,14 +57,84 @@ public class CodecProfileActivity extends FragmentActivity {
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
-		mViewPager.setAdapter(mSectionsPagerAdapter);		
+		mViewPager.setAdapter(mSectionsPagerAdapter);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.codec_profile, menu);
+		getMenuInflater().inflate(R.menu.settings_menu, menu);
 		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			overridePendingTransition(R.anim.details_activity_slide_enter,
+					R.anim.details_activity_slide_exit);
+			return true;
+
+		case R.id.action_email:
+
+			StringBuilder sb = new StringBuilder();
+
+
+			CodecInfo thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
+			CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator.getInstance();
+			CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator.getInstance();
+			CodecCapabilities capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
+			CodecProfileLevel[] profileLevels = capabalities.profileLevels;
+			int[] colorFormats = capabalities.colorFormats;
+
+
+			String codecName =  CodecInfoList.getCodecInfoList().get(codecIndex).getCodecName();
+
+			sb.append("Your device supports the following profiles and color format within the " + selectedType + " type of the " + codecName + " codec.");
+			sb.append("\n\n");
+			sb.append("\nProfiles \n\n");
+
+			for (CodecProfileLevel thisLevel : profileLevels) {
+
+				String translatedProfile = profileTranslator.getProfile(thisLevel.profile);
+				String translatedLevel = profileTranslator.getLevel(thisLevel.level);
+				
+				if (translatedLevel == null)
+					translatedLevel = "0x"+Integer.toHexString(thisLevel.level);
+				
+				if (translatedProfile == null)
+					translatedProfile = "0x"+Integer.toHexString(thisLevel.profile);
+				
+				sb.append("- " + translatedProfile + " at level " + translatedLevel  + "\n\n");
+			}
+
+			sb.append("\nColor Formats \n\n");
+
+			for (int thisFormat : colorFormats) {
+				
+				String translatedFormat = colorTranslator.getColorFormat(thisFormat);
+				
+				if (translatedFormat == null)
+					translatedFormat = "0x"+Integer.toHexString(thisFormat);
+				
+				sb.append("- " + translatedFormat + "\n\n");
+			}
+
+			sb.append("\n\nThanks for using Media Codec Query.");
+
+			final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+			emailIntent.setType("plain/text");
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Your Device's Media Codec Support");
+			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
+			emailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			Intent i = Intent.createChooser(emailIntent, "Send mail...");
+			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			getApplicationContext().startActivity(i);
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override
@@ -81,17 +145,6 @@ public class CodecProfileActivity extends FragmentActivity {
 				R.anim.details_activity_slide_exit);
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			finish();
-			overridePendingTransition(R.anim.details_activity_slide_enter,
-					R.anim.details_activity_slide_exit);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -99,20 +152,27 @@ public class CodecProfileActivity extends FragmentActivity {
 	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+
 		public SectionsPagerAdapter(FragmentManager fm) {
 			super(fm);
 		}
 
 		@Override
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			Fragment fragment = new ColorLevelFragment();
+
+			Fragment fragment;
+			if(position == 0){
+				fragment = new LevelFragment();
+			}else if (position == 1)
+			{
+				fragment = new ColorFragment();
+			}else{
+				Log.w("SectionsPagerAdapter","Unknown Fragment position");
+				return null;
+			}
 			Bundle args = new Bundle();
-			args.putInt(ColorLevelFragment.ARG_SECTION_NUMBER, position + 1);
-			args.putInt(ColorLevelFragment.CODEC_INDEX, codecIndex);
-			args.putString(ColorLevelFragment.SELECTED_TYPE, selectedType);
+			args.putInt(CODEC_INDEX, codecIndex);
+			args.putString(SELECTED_TYPE, selectedType);
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -134,252 +194,5 @@ public class CodecProfileActivity extends FragmentActivity {
 			}
 			return null;
 		}
-	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class ColorLevelFragment extends Fragment implements
-			OnItemClickListener {
-
-		public static final String ARG_SECTION_NUMBER = "sectionNum";
-		public static final String SELECTED_TYPE = "selectedType";
-		public static final String CODEC_INDEX = "codecIndex";
-		static final int PROFILE_POSITION = 1;
-		static final int COLOR_POSITION = 2;
-
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		private int[] colorFormats;
-		private CodecProfileLevel[] profileLevels;
-		private CodecInfo thisCodecInfo = null;
-		private CodecCapabilities capabalities = null;
-		private int cachedCodecIndex = -1;
-
-		private ArrayList<Boolean> profileVerbosity;
-		private ArrayList<Boolean> colorVerbosity;
-		private int sectionNum = -1;
-
-		private Typeface robotoCondensedLight;
-		
-		private ListView myListView;
-
-		public ColorLevelFragment() {
-
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_codec_profile,
-					container, false);
-
-			robotoCondensedLight = Typeface.createFromAsset(getActivity().getAssets(), "RobotoCondensed-Light.ttf");
-			
-			myListView = (ListView) rootView.findViewById(R.id.profile_list);
-
-			myListView.setOnItemClickListener(this);
-
-			sectionNum = getArguments().getInt(ARG_SECTION_NUMBER);
-			String selectedType = getArguments().getString(SELECTED_TYPE);
-			int codecIndex = getArguments().getInt(CODEC_INDEX);
-
-			/*
-			 * Log.d("Codec Profile Fragment", " Showing " + selectedType +
-			 * " of codec " + codecIndex + " in " + sectionNum);
-			 */
-
-			if (cachedCodecIndex != codecIndex) {
-
-				thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
-				capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
-				colorFormats = capabalities.colorFormats;
-				profileLevels = capabalities.profileLevels;
-				cachedCodecIndex = codecIndex;
-
-				Boolean[] array = new Boolean[capabalities.profileLevels.length];
-				Arrays.fill(array, Boolean.FALSE);
-				profileVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
-
-				array = new Boolean[capabalities.colorFormats.length];
-				Arrays.fill(array, Boolean.FALSE);
-				colorVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
-			}
-
-			if (sectionNum == PROFILE_POSITION) {
-
-				CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator
-						.getInstance();
-
-				final ArrayList<CodecProfileStrings> codecProfileStrings = new ArrayList<CodecProfileStrings>();
-
-				for (CodecProfileLevel thisProfile : profileLevels) {
-					String translatedProfile = profileTranslator
-							.getProfile(thisProfile.profile);
-					if (translatedProfile == null)
-						translatedProfile = (String
-								.valueOf(thisProfile.profile));
-
-					String translatedLevel = profileTranslator
-							.getLevel(thisProfile.level);
-					if (translatedLevel == null)
-						translatedLevel = ("0x" + Integer
-								.toHexString(thisProfile.level));
-
-					codecProfileStrings.add(new CodecProfileStrings(
-							translatedProfile, translatedLevel));
-				}
-
-				myListView.setAdapter(new ArrayAdapter<CodecProfileStrings>(
-						getActivity().getApplicationContext(),
-						R.layout.codec_profile_row, R.id.profileName,
-						codecProfileStrings) {
-
-					@Override
-					public View getView(int position, View convertView,
-							ViewGroup parent) {
-
-						// Must always return just a View.
-						View rowView = super.getView(position, convertView,
-								parent);
-
-						CodecProfileStrings thisProfile = codecProfileStrings
-								.get(position);
-
-						TextView profile = (TextView) rowView
-								.findViewById(R.id.profileName);
-						TextView level = (TextView) rowView
-								.findViewById(R.id.levelName);
-						profile.setTypeface(robotoCondensedLight);
-						level.setTypeface(robotoCondensedLight);
-
-						if (!thisProfile.getProfileName().startsWith("0x")
-								|| profileVerbosity.get(position))
-							profile.setText(thisProfile.getProfileName());
-						else
-							profile.setText(R.string.undefined);
-
-						if (!thisProfile.getLevelName().startsWith("0x")
-								|| profileVerbosity.get(position)) {
-							level.setText(getResources().getString(R.string.level) + thisProfile.getLevelName());
-							((TextView) rowView.findViewById(R.id.tapPrompt))
-									.setVisibility(View.INVISIBLE);
-						} else {
-							level.setText(getResources().getString(R.string.level) + getResources().getString(R.string.undefined));
-							((TextView) rowView.findViewById(R.id.tapPrompt))
-									.setVisibility(View.VISIBLE);
-						}
-
-						return rowView;
-					}
-				});
-
-			} else if (sectionNum == COLOR_POSITION) {
-
-				CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
-						.getInstance();
-
-				final ArrayList<String> colorFormatList = new ArrayList<String>();
-				for (int index = 0; index < colorFormats.length; index++) {
-					String translatedProfile = colorTranslator
-							.getColorFormat(colorFormats[index]);
-					if (translatedProfile != null)
-						colorFormatList.add(translatedProfile);
-					else
-						colorFormatList.add("0x"
-								+ Integer.toHexString(colorFormats[index]));
-				}
-
-				myListView.setAdapter(new ArrayAdapter<String>(getActivity()
-						.getApplicationContext(), R.layout.codec_color_row,
-						R.id.colorName, colorFormatList) {
-
-					public View getView(int position, View convertView,
-							ViewGroup parent) {
-
-						// Must always return just a View.
-						View rowView = super.getView(position, convertView,
-								parent);
-
-						String thisColorFormat = colorFormatList.get(position);
-
-						TextView colorField = (TextView) rowView
-								.findViewById(R.id.colorName);
-						colorField.setTypeface(robotoCondensedLight);
-
-						if (!thisColorFormat.startsWith("0x")
-								|| colorVerbosity.get(position)){
-							colorField.setText(thisColorFormat);
-							((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.INVISIBLE);
-						}
-						else{
-							colorField.setText(R.string.undefined);
-							((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.VISIBLE);
-						}
-
-						return rowView;
-					}
-				});
-			} else {
-				Log.w("Codec Profile Activity", "Unknown section " + sectionNum);
-			}
-
-			return rootView;
-		}
-
-		@SuppressWarnings("unchecked")
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
-			toggleVerbosity(position);
-			/*
-			 * Log.d("Codec Profile Activity", " Invalidating " + position +
-			 * " : " + view.toString());
-			 */
-			if (sectionNum == PROFILE_POSITION)
-				((ArrayAdapter<CodecProfileLevel>) myListView.getAdapter())
-						.notifyDataSetChanged();
-			else if (sectionNum == COLOR_POSITION)
-				((ArrayAdapter<String>) myListView.getAdapter())
-						.notifyDataSetChanged();
-		}
-
-		private void toggleVerbosity(int position) {
-
-			if (sectionNum == PROFILE_POSITION) {
-				if (profileVerbosity.get(position))
-					profileVerbosity.set(position, Boolean.FALSE);
-				else
-					profileVerbosity.set(position, Boolean.TRUE);
-			} else if (sectionNum == COLOR_POSITION) {
-				if (colorVerbosity.get(position))
-					colorVerbosity.set(position, Boolean.FALSE);
-				else
-					colorVerbosity.set(position, Boolean.TRUE);
-			}
-
-		}
-	}
-}
-
-class CodecProfileStrings {
-
-	private String profileName;
-	private String levelName;
-
-	public CodecProfileStrings(String profileName, String levelName) {
-		this.profileName = profileName;
-		this.levelName = levelName;
-	}
-
-	public String getLevelName() {
-		return levelName;
-	}
-
-	public String getProfileName() {
-		return profileName;
 	}
 }

@@ -119,6 +119,7 @@ android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
     android.os.Bundle getArguments() -> b
     android.support.v4.app.FragmentActivity getActivity() -> c
     android.content.res.Resources getResources() -> d
+    java.lang.String getString(int) -> a
     boolean isAdded() -> e
     boolean isDetached() -> f
     boolean isHidden() -> g
@@ -153,6 +154,7 @@ android.support.v4.app.Fragment -> android.support.v4.app.Fragment:
     boolean onOptionsItemSelected(android.view.MenuItem) -> a
     void onOptionsMenuClosed(android.view.Menu) -> b
     void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    void registerForContextMenu(android.view.View) -> a
     boolean onContextItemSelected(android.view.MenuItem) -> b
     void dump(java.lang.String,java.io.FileDescriptor,java.io.PrintWriter,java.lang.String[]) -> a
     void instantiateChildFragmentManager() -> r
@@ -1185,10 +1187,13 @@ com.crayonio.mediacodecquery.CodecDetailsActivity -> com.crayonio.mediacodecquer
     java.lang.String[] types -> c
     android.graphics.Typeface robotoCondensedLight -> d
     void onCreate(android.os.Bundle) -> onCreate
-    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
     void onBackPressed() -> onBackPressed
     void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
     java.lang.String[] access$0(com.crayonio.mediacodecquery.CodecDetailsActivity) -> a
     android.graphics.Typeface access$1(com.crayonio.mediacodecquery.CodecDetailsActivity) -> b
 com.crayonio.mediacodecquery.CodecDetailsActivity$1 -> com.crayonio.mediacodecquery.b:
@@ -1222,6 +1227,10 @@ com.crayonio.mediacodecquery.CodecListActivity -> com.crayonio.mediacodecquery.C
     android.graphics.Typeface robotoCondensedLight -> a
     void onCreate(android.os.Bundle) -> onCreate
     void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> onContextItemSelected
     android.graphics.Typeface access$0(com.crayonio.mediacodecquery.CodecListActivity) -> a
 com.crayonio.mediacodecquery.CodecListActivity$1 -> com.crayonio.mediacodecquery.e:
     com.crayonio.mediacodecquery.CodecListActivity this$0 -> a
@@ -1234,41 +1243,16 @@ com.crayonio.mediacodecquery.CodecProfileActivity -> com.crayonio.mediacodecquer
     android.support.v4.view.ViewPager mViewPager -> o
     void onCreate(android.os.Bundle) -> onCreate
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
-    void onBackPressed() -> onBackPressed
     boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onBackPressed() -> onBackPressed
     int access$0(com.crayonio.mediacodecquery.CodecProfileActivity) -> a
     java.lang.String access$1(com.crayonio.mediacodecquery.CodecProfileActivity) -> b
-com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment -> com.crayonio.mediacodecquery.f:
-    int[] colorFormats -> P
-    android.media.MediaCodecInfo$CodecProfileLevel[] profileLevels -> Q
-    com.crayonio.mediacodecquery.CodecInfo thisCodecInfo -> R
-    android.media.MediaCodecInfo$CodecCapabilities capabalities -> S
-    int cachedCodecIndex -> T
-    java.util.ArrayList profileVerbosity -> U
-    java.util.ArrayList colorVerbosity -> V
-    int sectionNum -> W
-    android.graphics.Typeface robotoCondensedLight -> X
-    android.widget.ListView myListView -> Y
-    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
-    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
-    void toggleVerbosity(int) -> a
-    android.graphics.Typeface access$0(com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment) -> a
-    java.util.ArrayList access$1(com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment) -> b
-    java.util.ArrayList access$2(com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment) -> c
-com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment$1 -> com.crayonio.mediacodecquery.g:
-    com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment this$1 -> a
-    java.util.ArrayList val$codecProfileStrings -> b
-    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment$2 -> com.crayonio.mediacodecquery.h:
-    com.crayonio.mediacodecquery.CodecProfileActivity$ColorLevelFragment this$1 -> a
-    java.util.ArrayList val$colorFormatList -> b
-    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
-com.crayonio.mediacodecquery.CodecProfileActivity$SectionsPagerAdapter -> com.crayonio.mediacodecquery.i:
+com.crayonio.mediacodecquery.CodecProfileActivity$SectionsPagerAdapter -> com.crayonio.mediacodecquery.f:
     com.crayonio.mediacodecquery.CodecProfileActivity this$0 -> a
     android.support.v4.app.Fragment getItem(int) -> a
     int getCount() -> b
     java.lang.CharSequence getPageTitle(int) -> c
-com.crayonio.mediacodecquery.CodecProfileLevelTranslator -> com.crayonio.mediacodecquery.j:
+com.crayonio.mediacodecquery.CodecProfileLevelTranslator -> com.crayonio.mediacodecquery.g:
     android.util.SparseArray profileDictionary -> a
     android.util.SparseArray levelDictionary -> b
     com.crayonio.mediacodecquery.CodecProfileLevelTranslator instance -> c
@@ -1276,8 +1260,46 @@ com.crayonio.mediacodecquery.CodecProfileLevelTranslator -> com.crayonio.mediaco
     void populateDictionaries() -> b
     java.lang.String getProfile(int) -> a
     java.lang.String getLevel(int) -> b
-com.crayonio.mediacodecquery.CodecProfileStrings -> com.crayonio.mediacodecquery.k:
+com.crayonio.mediacodecquery.CodecProfileStrings -> com.crayonio.mediacodecquery.h:
     java.lang.String profileName -> a
     java.lang.String levelName -> b
     java.lang.String getLevelName() -> a
     java.lang.String getProfileName() -> b
+com.crayonio.mediacodecquery.ColorFragment -> com.crayonio.mediacodecquery.i:
+    int[] colorFormats -> P
+    com.crayonio.mediacodecquery.CodecInfo thisCodecInfo -> Q
+    android.media.MediaCodecInfo$CodecCapabilities capabalities -> R
+    int cachedCodecIndex -> S
+    java.util.ArrayList colorVerbosity -> T
+    android.graphics.Typeface robotoCondensedLight -> U
+    android.widget.ListView myListView -> V
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> b
+    void toggleVerbosity(int) -> b
+    android.graphics.Typeface access$0(com.crayonio.mediacodecquery.ColorFragment) -> a
+    java.util.ArrayList access$1(com.crayonio.mediacodecquery.ColorFragment) -> b
+com.crayonio.mediacodecquery.ColorFragment$1 -> com.crayonio.mediacodecquery.j:
+    com.crayonio.mediacodecquery.ColorFragment this$0 -> a
+    java.util.ArrayList val$colorFormatList -> b
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
+com.crayonio.mediacodecquery.LevelFragment -> com.crayonio.mediacodecquery.k:
+    android.media.MediaCodecInfo$CodecProfileLevel[] profileLevels -> P
+    com.crayonio.mediacodecquery.CodecInfo thisCodecInfo -> Q
+    android.media.MediaCodecInfo$CodecCapabilities capabalities -> R
+    int cachedCodecIndex -> S
+    java.util.ArrayList profileVerbosity -> T
+    android.graphics.Typeface robotoCondensedLight -> U
+    android.widget.ListView myListView -> V
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> a
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo) -> onCreateContextMenu
+    boolean onContextItemSelected(android.view.MenuItem) -> b
+    void toggleVerbosity(int) -> b
+    android.graphics.Typeface access$0(com.crayonio.mediacodecquery.LevelFragment) -> a
+    java.util.ArrayList access$1(com.crayonio.mediacodecquery.LevelFragment) -> b
+com.crayonio.mediacodecquery.LevelFragment$1 -> com.crayonio.mediacodecquery.l:
+    com.crayonio.mediacodecquery.LevelFragment this$0 -> a
+    java.util.ArrayList val$codecProfileStrings -> b
+    android.view.View getView(int,android.view.View,android.view.ViewGroup) -> getView
