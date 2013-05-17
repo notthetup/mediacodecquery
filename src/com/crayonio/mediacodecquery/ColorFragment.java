@@ -1,8 +1,5 @@
 package com.crayonio.mediacodecquery;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -11,29 +8,30 @@ import android.media.MediaCodecInfo.CodecCapabilities;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.AdapterView.OnItemClickListener;
 
-public class ColorFragment extends Fragment implements
-OnItemClickListener {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class ColorFragment extends Fragment implements
+		OnItemClickListener {
 
 	/**
 	 * The fragment argument representing the section number for this
 	 * fragment.
 	 */
 	private int[] colorFormats;
-	private CodecInfo thisCodecInfo = null;
-	private CodecCapabilities capabalities = null;
 	private int cachedCodecIndex = -1;
 
 	private ArrayList<Boolean> colorVerbosity;
@@ -48,88 +46,91 @@ OnItemClickListener {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_codec_profile,
 				container, false);
 
 		robotoCondensedLight = Typeface.createFromAsset(getActivity().getAssets(), "RobotoCondensed-Light.ttf");
 
-		myListView = (ListView) rootView.findViewById(R.id.profile_list);
-		myListView.setOnItemClickListener(this);
-		registerForContextMenu(myListView);
+		if (rootView != null) {
+			myListView = (ListView) rootView.findViewById(R.id.profile_list);
 
-		String selectedType = getArguments().getString(CodecProfileActivity.SELECTED_TYPE);
-		int codecIndex = getArguments().getInt(CodecProfileActivity.CODEC_INDEX);
+			myListView.setOnItemClickListener(this);
+			registerForContextMenu(myListView);
+
+			String selectedType = getArguments().getString(CodecProfileActivity.SELECTED_TYPE);
+			int codecIndex = getArguments().getInt(CodecProfileActivity.CODEC_INDEX);
 
 		/*
 		 * Log.d("Codec Profile Fragment", " Showing " + selectedType +
 		 * " of codec " + codecIndex + " in " + sectionNum);
 		 */
 
-		if (cachedCodecIndex != codecIndex) {
+			if (cachedCodecIndex != codecIndex) {
 
-			thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
-			capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
-			colorFormats = capabalities.colorFormats;
-			cachedCodecIndex = codecIndex;
+				CodecInfo thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
+				CodecCapabilities capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
+				colorFormats = capabalities.colorFormats;
+				cachedCodecIndex = codecIndex;
 
-			Boolean[] array = new Boolean[capabalities.colorFormats.length];
-			Arrays.fill(array, Boolean.FALSE);
-			colorVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
-		}
-
-		CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
-				.getInstance();
-
-		final ArrayList<String> colorFormatList = new ArrayList<String>();
-		for (int index = 0; index < colorFormats.length; index++) {
-			String translatedProfile = colorTranslator
-					.getColorFormat(colorFormats[index]);
-			if (translatedProfile != null)
-				colorFormatList.add(translatedProfile);
-			else
-				colorFormatList.add("0x"
-						+ Integer.toHexString(colorFormats[index]));
-		}
-
-		myListView.setAdapter(new ArrayAdapter<String>(getActivity()
-				.getApplicationContext(), R.layout.codec_color_row,
-				R.id.colorName, colorFormatList) {
-
-			public View getView(int position, View convertView,
-					ViewGroup parent) {
-
-				// Must always return just a View.
-				View rowView = super.getView(position, convertView,
-						parent);
-
-				String thisColorFormat = colorFormatList.get(position);
-
-				TextView colorField = (TextView) rowView
-						.findViewById(R.id.colorName);
-				colorField.setTypeface(robotoCondensedLight);
-
-				if (!thisColorFormat.startsWith("0x")
-						|| colorVerbosity.get(position)){
-					colorField.setText(thisColorFormat);
-					((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.INVISIBLE);
-				}
-				else{
-					colorField.setText(R.string.undefined);
-					((TextView) rowView.findViewById(R.id.tapPrompt)).setVisibility(View.VISIBLE);
-				}
-
-				return rowView;
+				Boolean[] array = new Boolean[capabalities.colorFormats.length];
+				Arrays.fill(array, Boolean.FALSE);
+				colorVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
 			}
-		});
 
+			CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator
+					.getInstance();
+
+			final ArrayList<String> colorFormatList = new ArrayList<String>();
+			for (int colorFormat : colorFormats) {
+				String translatedProfile = colorTranslator
+						.getColorFormat(colorFormat);
+				if (translatedProfile != null)
+					colorFormatList.add(translatedProfile);
+				else
+					colorFormatList.add("0x" + Integer.toHexString(colorFormat));
+			}
+
+			myListView.setAdapter(new ArrayAdapter<String>(getActivity()
+					.getApplicationContext(), R.layout.codec_color_row,
+					R.id.colorName, colorFormatList) {
+
+				public View getView(int position, View convertView,
+				                    ViewGroup parent) {
+
+					// Must always return just a View.
+					View rowView = super.getView(position, convertView,
+							parent);
+
+					if (rowView != null) {
+						String thisColorFormat = colorFormatList.get(position);
+
+						TextView colorField;
+
+						colorField = (TextView) rowView
+								.findViewById(R.id.colorName);
+						colorField.setTypeface(robotoCondensedLight);
+
+						if (!thisColorFormat.startsWith("0x")
+								|| colorVerbosity.get(position)){
+							colorField.setText(thisColorFormat);
+							rowView.findViewById(R.id.tapPrompt).setVisibility(View.INVISIBLE);
+						}
+						else{
+							colorField.setText(R.string.undefined);
+							rowView.findViewById(R.id.tapPrompt).setVisibility(View.VISIBLE);
+						}
+					}
+					return rowView;
+				}
+			});
+		}
 		return rootView;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		toggleVerbosity(position);
 		((ArrayAdapter<String>) myListView.getAdapter()).notifyDataSetChanged();
 	}
@@ -142,22 +143,22 @@ OnItemClickListener {
 		menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo)menuInfo).position, 0, getString(R.string.copy) + getString(R.string.copy_color_format));
 	}
 
-	public boolean onContextItemSelected(MenuItem item) {  
+	public boolean onContextItemSelected(MenuItem item) {
 		if(item.getOrder() == 0)
 		{
 			Context myContext = this.getActivity().getBaseContext();
 			ClipboardManager clipboard = (ClipboardManager)myContext.getSystemService(Context.CLIPBOARD_SERVICE);
-			
+
 			CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator.getInstance();
 			String translatedColor = colorTranslator.getColorFormat(colorFormats[item.getItemId()]);
 			ClipData clip = ClipData.newPlainText("label",translatedColor);
 			clipboard.setPrimaryClip(clip);
 			Toast.makeText(myContext, getString(R.string.copy_color_format) + getString(R.string.copied), Toast.LENGTH_SHORT).show();
-			return true;  
+			return true;
 		}
 		else
 			return super.onContextItemSelected(item);
-	}  
+	}
 
 	private void toggleVerbosity(int position) {
 		if (colorVerbosity.get(position))

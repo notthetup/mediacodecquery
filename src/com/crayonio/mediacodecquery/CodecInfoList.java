@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecList;
 
-public class CodecInfoList {
+class CodecInfoList {
 
 	private static ArrayList<CodecInfo> mCodecInfoList = null;
 

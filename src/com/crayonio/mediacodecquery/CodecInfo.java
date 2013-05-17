@@ -9,7 +9,7 @@ import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.util.Log;
 
-public class CodecInfo {
+class CodecInfo {
 
 	private String manufacturerName = "";
 	private String fullName = "";

@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.util.SparseArray;
 
-public class CodecColorFormatTranslator {
+class CodecColorFormatTranslator {
 
 	private static SparseArray<String> dictionary;
 	private static CodecColorFormatTranslator instance = null;
@@ -28,21 +28,16 @@ public class CodecColorFormatTranslator {
 		
 		Field[] fields = capabilities.getClass().getFields();
 
-		for (Field field : fields) {
-			// Log.d("Fields", "Checking field " + field.getName());
-			if (field.getType().isPrimitive()) {
-				try {
-					dictionary.put(field.getInt(capabilities), field.getName());
-					// Log.d("Fields","Added " + field.getName() + " : " +
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-					continue;
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-					continue;
-				}
+		// Log.d("Fields", "Checking field " + field.getName());
+		for (Field field : fields)
+			if (field.getType().isPrimitive()) try {
+				dictionary.put(field.getInt(capabilities), field.getName());
+				// Log.d("Fields","Added " + field.getName() + " : " +
+			} catch (IllegalArgumentException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
 			}
-		}
 	}
 
 	public String getColorFormat(int formatIndex) {

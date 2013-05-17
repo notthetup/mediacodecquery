@@ -35,13 +35,13 @@ public class CodecDetailsActivity extends ListActivity implements
 	private String[] types;
 
 	private Typeface robotoCondensedLight;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_details);
-		
-		robotoCondensedLight = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Light.ttf");  
+
+		robotoCondensedLight = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Light.ttf");
 
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
@@ -57,38 +57,40 @@ public class CodecDetailsActivity extends ListActivity implements
 			codecIndex = getIntent().getIntExtra(CodecListActivity.CODEC_INDEX,
 					-1);
 		}
-		
+
 		ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
-		
+
 		if (codecIndex >= 0 && codecIndex < codecInfoList.size()) {
 			thisCodecInfo = codecInfoList.get(codecIndex);
 			types = thisCodecInfo.getSupportedTypes();
 			setListAdapter(new ArrayAdapter<String>(this,
 					R.layout.codec_detail_row, R.id.codecDetails, types){
-				
+
 				@Override
 				public View getView(int position, View convertView, ViewGroup parent) {
 
 					// Must always return just a View.
 					View rowView = super.getView(position, convertView, parent);
 
-					String entry = types[position];
+					if (rowView != null){
+						String entry = types[position];
 
-					TextView details = (TextView) rowView
-							.findViewById(R.id.codecDetails);
-					details.setTypeface(robotoCondensedLight);
-					
-					details.setText(entry);
+						TextView details = (TextView) rowView
+								.findViewById(R.id.codecDetails);
+						details.setTypeface(robotoCondensedLight);
+
+						details.setText(entry);
+					}
 
 					return rowView;
 				}
-				
+
 			});
 		} else
 			Log.w("Codec Details Activity", "No codec Index ");
 
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
@@ -115,7 +117,7 @@ public class CodecDetailsActivity extends ListActivity implements
 		startActivity(intent, bndlanimation);
 
 	}
-	
+
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.settings_menu, menu);
@@ -123,59 +125,57 @@ public class CodecDetailsActivity extends ListActivity implements
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
-		
+
 		switch (item.getItemId()) {
-		case android.R.id.home:
-			finish();
-			overridePendingTransition(R.anim.details_activity_slide_enter,
-					R.anim.details_activity_slide_exit);
-			return true;
-		
-		case R.id.action_email:
-			
-			StringBuilder sb = new StringBuilder();
-			
-			String codecName =  CodecInfoList.getCodecInfoList().get(codecIndex).getCodecName();
-			sb.append("Your device supports the following types within " + codecName + " codec.");
-			sb.append("\n\n");
-			
-			for (String thisCodecType : CodecInfoList.getCodecInfoList().get(codecIndex).getSupportedTypes()) {
-				sb.append("- " + thisCodecType + "\n\n");
-			}
-			
-			sb.append("\n\nThanks for using Media Codec Query.");
-			
-			final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-			
-			emailIntent.setType("plain/text");
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Your Device's Media Codec Support");
-			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
-			emailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			Intent i = Intent.createChooser(emailIntent, "Send mail...");
-			i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			getApplicationContext().startActivity(i);
-			return true;
+			case android.R.id.home:
+				finish();
+				overridePendingTransition(R.anim.details_activity_slide_enter,
+						R.anim.details_activity_slide_exit);
+				return true;
+
+			case R.id.action_email:
+
+				StringBuilder sb = new StringBuilder();
+
+				String codecName =  CodecInfoList.getCodecInfoList().get(codecIndex).getCodecName();
+				sb.append("Your device supports the following types within ").append(codecName).append(" codec.").append("\n\n");
+
+				for (String thisCodecType : CodecInfoList.getCodecInfoList().get(codecIndex).getSupportedTypes())
+					sb.append("- ").append(thisCodecType).append("\n\n");
+
+				sb.append("\n\nThanks for using Media Codec Query.");
+
+				final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+				emailIntent.setType("plain/text");
+				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Your Device's Media Codec Support");
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, sb.toString());
+				emailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				Intent i = Intent.createChooser(emailIntent, "Send mail...");
+				i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				getApplicationContext().startActivity(i);
+				return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.setHeaderTitle("Options..");
 		menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo)menuInfo).position, 0, getString(R.string.copy) + getString(R.string.copy_type));
 	}
 
-	public boolean onContextItemSelected(MenuItem item) {  
+	public boolean onContextItemSelected(MenuItem item) {
 		if(item.getOrder() == 0)
 		{
-			 ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-			 ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
-			 ClipData clip = ClipData.newPlainText("label", (codecInfoList.get(codecIndex).getSupportedTypes())[item.getItemId()]);
-			 clipboard.setPrimaryClip(clip);
-			 Toast.makeText(getApplicationContext(), getString(R.string.copy_type) + getString(R.string.copied), Toast.LENGTH_SHORT).show();
-			return true;  
+			ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+			ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
+			ClipData clip = ClipData.newPlainText("label", (codecInfoList.get(codecIndex).getSupportedTypes())[item.getItemId()]);
+			clipboard.setPrimaryClip(clip);
+			Toast.makeText(getApplicationContext(), getString(R.string.copy_type) + getString(R.string.copied), Toast.LENGTH_SHORT).show();
+			return true;
 		}
 		else
 			return super.onContextItemSelected(item);
-	}  
+	}
 }

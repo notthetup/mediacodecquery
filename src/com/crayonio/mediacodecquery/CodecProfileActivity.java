@@ -32,7 +32,7 @@ public class CodecProfileActivity extends FragmentActivity {
 	SectionsPagerAdapter mSectionsPagerAdapter;
 
 	private String selectedType;
-	private int codecIndex = -1;;
+	private int codecIndex = -1;
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
@@ -106,7 +106,7 @@ public class CodecProfileActivity extends FragmentActivity {
 				if (translatedProfile == null)
 					translatedProfile = "0x"+Integer.toHexString(thisLevel.profile);
 				
-				sb.append("- " + translatedProfile + " at level " + translatedLevel  + "\n\n");
+				sb.append("- ").append(translatedProfile).append(" at level ").append(translatedLevel).append("\n\n");
 			}
 
 			sb.append("\nColor Formats \n\n");
@@ -118,7 +118,7 @@ public class CodecProfileActivity extends FragmentActivity {
 				if (translatedFormat == null)
 					translatedFormat = "0x"+Integer.toHexString(thisFormat);
 				
-				sb.append("- " + translatedFormat + "\n\n");
+				sb.append("- ").append(translatedFormat).append("\n\n");
 			}
 
 			sb.append("\n\nThanks for using Media Codec Query.");

@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import android.media.MediaCodecInfo.CodecProfileLevel;
 import android.util.SparseArray;
 
-public class CodecProfileLevelTranslator {
+class CodecProfileLevelTranslator {
 
 	private static SparseArray<String> profileDictionary;
 	private static SparseArray<String> levelDictionary;
@@ -19,7 +19,7 @@ public class CodecProfileLevelTranslator {
 		populateDictionaries();
 	}
 	
-	public static CodecProfileLevelTranslator getInstance(){
+	static CodecProfileLevelTranslator getInstance(){
 		if (instance == null)
 			instance = new CodecProfileLevelTranslator();
 		
@@ -48,10 +48,8 @@ public class CodecProfileLevelTranslator {
 					// field.getInt(capabilities));
 				} catch (IllegalArgumentException e) {
 					e.printStackTrace();
-					continue;
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
-					continue;
 				}
 			}
 		}
