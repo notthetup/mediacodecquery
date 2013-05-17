@@ -53,35 +53,37 @@ OnItemClickListener {
 				// Must always return just a View.
 				View rowView = super.getView(position, convertView, parent);
 
-				CodecInfo entry = codecInfoList.get(position);
+				if (rowView != null){
+					CodecInfo entry = codecInfoList.get(position);
 
-				TextView name = (TextView) rowView.findViewById(R.id.codecName);
-				TextView fullName = (TextView) rowView
-						.findViewById(R.id.codecFullName);
-				name.setTypeface(robotoCondensedLight);
-				fullName.setTypeface(robotoCondensedLight);
+					TextView name = (TextView) rowView.findViewById(R.id.codecName);
+					TextView fullName = (TextView) rowView
+							.findViewById(R.id.codecFullName);
+					name.setTypeface(robotoCondensedLight);
+					fullName.setTypeface(robotoCondensedLight);
 
-				name.setText(entry.getCodecName());
-				fullName.setText(entry.getFullName());
+					name.setText(entry.getCodecName());
+					fullName.setText(entry.getFullName());
 
-				// Log.d("GetView", "Getting rowView " + position + " : " +
-				// rowView.getId());
+					// Log.d("GetView", "Getting rowView " + position + " : " +
+					// rowView.getId());
 
-				ImageView dirImg = (ImageView) rowView
-						.findViewById(R.id.directionImage);
+					ImageView dirImg = (ImageView) rowView
+							.findViewById(R.id.directionImage);
 
-				if (entry.isDecoder() && entry.isEncoder()) {
-					dirImg.setImageDrawable(getResources().getDrawable(
-							R.drawable.codec_both));
-					// Log.d("GetView", "Setting Image in " + position);
-				} else if (entry.isDecoder()) {
-					dirImg.setImageDrawable(getResources().getDrawable(
-							R.drawable.codec_decoder));
-				} else if (entry.isEncoder()) {
-					dirImg.setImageDrawable(getResources().getDrawable(
-							R.drawable.codec_encoder));
-				} else {
-					dirImg.setImageDrawable(null);
+					if (entry.isDecoder() && entry.isEncoder()) {
+						dirImg.setImageDrawable(getResources().getDrawable(
+								R.drawable.codec_both));
+						// Log.d("GetView", "Setting Image in " + position);
+					} else if (entry.isDecoder()) {
+						dirImg.setImageDrawable(getResources().getDrawable(
+								R.drawable.codec_decoder));
+					} else if (entry.isEncoder()) {
+						dirImg.setImageDrawable(getResources().getDrawable(
+								R.drawable.codec_encoder));
+					} else {
+						dirImg.setImageDrawable(null);
+					}
 				}
 
 				return rowView;
@@ -116,17 +118,11 @@ OnItemClickListener {
 			sb.append("\n\n");
 			
 			for (CodecInfo thisCodec : CodecInfoList.getCodecInfoList()) {
-				if (thisCodec.isDecoder() && thisCodec.isEncoder())
-				{
-					sb.append("- Encoder+Decoder : ");
-				}else if (thisCodec.isDecoder())
-				{
-					sb.append("- Decoder : ");
-				}else if (thisCodec.isEncoder()){
-					sb.append("- Encoder : ");
-				}
-				sb.append(thisCodec.getCodecName() + "  : " );
-				sb.append(thisCodec.getFullName() + "\n\n");
+				if (thisCodec.isDecoder() && thisCodec.isEncoder()) sb.append("- Encoder+Decoder : ");
+				else if (thisCodec.isDecoder()) sb.append("- Decoder : ");
+				else if (thisCodec.isEncoder()) sb.append("- Encoder : ");
+				sb.append(thisCodec.getCodecName()).append("  : ");
+				sb.append(thisCodec.getFullName()).append("\n\n");
 			}
 			
 			sb.append("\n\nThanks for using Media Codec Query.");

@@ -18,13 +18,12 @@ public class CodecInfo {
 	private boolean isEncoder = false;
 	private boolean isDecoder = false;
 	
-	private HashSet<String> supportedTypes;
+	private HashSet<String> supportedTypes = new HashSet<String>();
 	
 	private ArrayList<MediaCodecInfo> mediaCodecInfoList;
 
 	public CodecInfo(MediaCodecInfo mediaCodecInfo) {
-		supportedTypes = new HashSet<String>();
-		
+
 		mediaCodecInfoList = new ArrayList<MediaCodecInfo>(2);
 		mediaCodecInfoList.add(mediaCodecInfo);
 		supportedTypes.addAll(Arrays.asList(mediaCodecInfo.getSupportedTypes()));
@@ -43,45 +42,38 @@ public class CodecInfo {
 
 		String[] tokens = nameString.split("\\.");
 
+		/* Over-ride for the software codecs*/
 		if (tokens.length > 0) {
-			/* Over-ride for the software codecs*/
 			if (tokens.length == 1) {
 				this.codecName = tokens[0];
 				this.manufacturerName = "unknown";
-				return;
-			}
-			else{
+			} else {
 				for (int index = 0; index < tokens.length; ++index) {
 					String thisToken = tokens[index];
 
 					if (index == 1)
 						this.manufacturerName = thisToken;
 
-					else if (index > 1 && index < tokens.length-1) {
+					else if (index > 1 && index < tokens.length - 1) {
 						if (!this.codecName.equalsIgnoreCase(""))
 							this.codecName += ".";
 
 						this.codecName += thisToken;
-					}
-
-					else if (index == tokens.length-1){
+					} else if (index == tokens.length - 1) {
 						if (thisToken.equalsIgnoreCase("encoder") || thisToken.contains("encoder") || thisToken.contains("Encoder") || thisToken.contains("ENCODER")) {
 							this.isEncoder = true;
 							//Log.d("Codec Info","It is an encoder");
 						} else if (thisToken.equalsIgnoreCase("decoder") || thisToken.contains("decoder") || thisToken.contains("Decoder") || thisToken.contains("DECODER")) {
 							this.isDecoder = true;
 							//Log.d("Codec Info","It is an encoder");
-						}
-						else{
+						} else {
 							this.codecName += "." + thisToken;
 						}
 					}
 				}
 			}
-
-		} else {
-			Log.w("Codec Info", "No tokens found?? WTH?");
 		}
+		else Log.w("Codec Info", "No tokens found?? WTH?");
 	}
 	
 	public void assimilate(MediaCodecInfo mediaCodecInfo) {
@@ -123,30 +115,18 @@ public class CodecInfo {
 	@Override
 	public boolean equals(Object obj) {
 
-		if (obj == null)
-			return false;
-		if (obj == this)
-			return true;
-		if (obj.getClass() != getClass())
-			return false;
+		return (obj != null) && ((obj == this) || ((obj.getClass() == getClass()) && ((CodecInfo) obj).getCodecName().equalsIgnoreCase(this.codecName) && ((CodecInfo) obj).getManufacturerName().equalsIgnoreCase(this.manufacturerName)));
 
-		if (((CodecInfo) obj).getCodecName().equalsIgnoreCase(this.codecName)
-				&& ((CodecInfo) obj).getManufacturerName().equalsIgnoreCase(
-						this.manufacturerName))
-			return true;
-		else
-			return false;
 	}
 	
 	public String [] getSupportedTypes() {
-		return (String[]) supportedTypes.toArray(new String[0]);
+		return supportedTypes.toArray(new String[supportedTypes.size()]);
 	}
 
 	public CodecCapabilities getCapabilitiesForType(String selectedType) {
-		for (MediaCodecInfo thisCodecInfo : mediaCodecInfoList) {
+		for (MediaCodecInfo thisCodecInfo : mediaCodecInfoList)
 			if (Arrays.asList(thisCodecInfo.getSupportedTypes()).contains(selectedType))
 				return thisCodecInfo.getCapabilitiesForType(selectedType);
-		}
 		
 		Log.w("CodecInfo","Unable to find the selected type. Help!");
 		return null;
