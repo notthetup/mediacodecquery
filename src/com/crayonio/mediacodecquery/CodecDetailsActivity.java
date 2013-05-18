@@ -30,7 +30,6 @@ public class CodecDetailsActivity extends ListActivity implements
 	final static String CODEC_INDEX = "codecIndex";
 	final static String SELECTED_TYPE = "selectedType";
 
-	private CodecInfo thisCodecInfo;
 	private int codecIndex = -1;
 	private String[] types;
 
@@ -53,18 +52,15 @@ public class CodecDetailsActivity extends ListActivity implements
 				codecIndex = newCodecState;
 		}
 
-		if (codecIndex < 0) {
-			codecIndex = getIntent().getIntExtra(CodecListActivity.CODEC_INDEX,
-					-1);
-		}
+		if (codecIndex < 0)
+			codecIndex = getIntent().getIntExtra(CodecListActivity.CODEC_INDEX,-1);
 
 		ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
 
 		if (codecIndex >= 0 && codecIndex < codecInfoList.size()) {
-			thisCodecInfo = codecInfoList.get(codecIndex);
+			CodecInfo thisCodecInfo = codecInfoList.get(codecIndex);
 			types = thisCodecInfo.getSupportedTypes();
-			setListAdapter(new ArrayAdapter<String>(this,
-					R.layout.codec_detail_row, R.id.codecDetails, types){
+			setListAdapter(new ArrayAdapter<String>(this,R.layout.codec_detail_row, R.id.codecDetails, types){
 
 				@Override
 				public View getView(int position, View convertView, ViewGroup parent) {
@@ -74,11 +70,8 @@ public class CodecDetailsActivity extends ListActivity implements
 
 					if (rowView != null){
 						String entry = types[position];
-
-						TextView details = (TextView) rowView
-								.findViewById(R.id.codecDetails);
+						TextView details = (TextView) rowView.findViewById(R.id.codecDetails);
 						details.setTypeface(robotoCondensedLight);
-
 						details.setText(entry);
 					}
 
@@ -111,11 +104,8 @@ public class CodecDetailsActivity extends ListActivity implements
 		Intent intent = new Intent(this, CodecProfileActivity.class);
 		intent.putExtra(CODEC_INDEX, codecIndex);
 		intent.putExtra(SELECTED_TYPE, types[arg2]);
-		Bundle bndlanimation = ActivityOptions.makeCustomAnimation(
-				getApplicationContext(), R.anim.list_activity_slide_enter,
-				R.anim.list_activity_slide_exit).toBundle();
+		Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.list_activity_slide_enter,R.anim.list_activity_slide_exit).toBundle();
 		startActivity(intent, bndlanimation);
-
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
