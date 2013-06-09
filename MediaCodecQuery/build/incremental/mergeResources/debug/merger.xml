@@ -24,6 +24,16 @@
                 qualifiers=""
                 type="anim" />
             <file
+                name="actionbar_bg"
+                path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/drawable/actionbar_bg.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="app_bg"
+                path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/drawable/app_bg.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
                 name="gradient_bg"
                 path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/drawable/gradient_bg.xml"
                 qualifiers=""
@@ -204,16 +214,59 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="codec_color_row"
+                path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/layout-land/codec_color_row.xml"
+                qualifiers="land"
+                type="layout" />
+            <file
                 name="settings_menu"
                 path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/menu/settings_menu.xml"
                 qualifiers=""
                 type="menu" />
+            <file
+                path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/colors.xml"
+                qualifiers="" >
+                <color name="blue" >#5569FF
+                </color>
+                <color name="something" >#8D739F
+                </color>
+                <color name="pager_title_bg" >#705185
+                </color>
+                <color name="pink" >#C7B1B6
+                </color>
+                <color name="divider" >#73C8E8
+                </color>
+                <color name="light_yellow" >#FFF5DE
+                </color>
+                <color name="title_bg" >#FFD67B
+                </color>
+                <color name="purple" >#999CD9
+                </color>
+                <color name="yellow" >#F2BE5C
+                </color>
+            </file>
             <file
                 path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/dimens.xml"
                 qualifiers="" >
                 <dimen name="activity_horizontal_margin" >16dp
                 </dimen>
                 <dimen name="activity_vertical_margin" >16dp
+                </dimen>
+                <dimen name="row_height" >70dp
+                </dimen>
+                <dimen name="divider_height" >2dp
+                </dimen>
+                <dimen name="tap_prompt_padding" >4dp
+                </dimen>
+                <dimen name="list_row_text_padding_top" >4dp
+                </dimen>
+                <dimen name="rhythm_height" >48dp
+                </dimen>
+                <dimen name="left_margin" >8dp
+                </dimen>
+                <dimen name="fragment_header_padding" > 16dp 
+                </dimen>
+                <dimen name="list_row_text_padding_bottom" >4dp
                 </dimen>
             </file>
             <file
@@ -274,15 +327,9 @@
                 path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/styles.xml"
                 qualifiers="" >
 
-                <style name="WindowTitleBackground" >
-                    <item name="android:background">
-@color/title_bg
-                    </item>
-                </style>
-
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Light" >
+                    parent="android:Theme.Black" >
 
                     <!--
             Theme customizations available in newer API levels can go in
@@ -304,7 +351,7 @@
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo.Light" >
+                    parent="android:Theme.Holo" >
 
                     <!-- API 11 theme customizations can go here. -->
                 </style>
@@ -313,39 +360,22 @@
                 path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values-v14/styles.xml"
                 qualifiers="v14" >
 
-                <style name="WindowTitleBackground" >
+                <style
+                    name="MyActionBar"
+                    parent="@android:style/Widget.Holo.Light.ActionBar" >
                     <item name="android:background">
-@color/title_bg
+@drawable/actionbar_bg
                     </item>
                 </style>
 
                 <style
                     name="AppBaseTheme"
-                    parent="android:Theme.Holo.Light.DarkActionBar" >
-                    <item name="android:windowTitleBackgroundStyle">
-@style/WindowTitleBackground
+                    parent="android:Theme.Holo.Light" >
+                    <item name="android:actionBarStyle">
+@style/MyActionBar
                     </item>
+                    <!-- other activity and action bar styles here -->
                 </style>
-            </file>
-            <file
-                path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/colors.xml"
-                qualifiers="" >
-                <color name="blue" >#5569FF
-                </color>
-                <color name="something" >#8D739F
-                </color>
-                <color name="pager_title_bg" >#705185
-                </color>
-                <color name="divider" >#73C8E8
-                </color>
-                <color name="yellow2" >#F2BE5C
-                </color>
-                <color name="title_bg" >#C7B1B6
-                </color>
-                <color name="purple" >#999CD9
-                </color>
-                <color name="yellow" >#FFD67B
-                </color>
             </file>
         </source>
         <source path="/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/build/res/rs/debug" />

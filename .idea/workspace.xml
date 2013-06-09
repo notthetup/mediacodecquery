@@ -38,60 +38,7 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6b1c845-e166-40a4-b8d1-b91fc67b4b50" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecDetailsActivity.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecDetailsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/ColorFragment.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/ColorFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/LevelFragment.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/LevelFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/source/r/debug/com/crayonio/mediacodecquery/R.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/source/r/debug/com/crayonio/mediacodecquery/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/source/r/release/com/crayonio/mediacodecquery/R.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/source/r/release/com/crayonio/mediacodecquery/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_details.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_details.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_details.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_details.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_list.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_list.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_list.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/activity_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/activity_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/activity_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_color_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_color_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_color_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_color_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_color_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_color_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_detail_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_detail_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_detail_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_detail_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_detail_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_detail_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_list_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_list_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_list_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_list_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_profile_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/codec_profile_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_profile_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/codec_profile_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_profile_row.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/codec_profile_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/fragment_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/layout/fragment_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/fragment_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/layout/fragment_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/fragment_codec_profile.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/layout/fragment_codec_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/gradient_bg.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/gradient_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/gradient_bg.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/gradient_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/gradient_bg.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/gradient_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/gradient_bg_hover.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/gradient_bg_hover.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/gradient_bg_hover.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/gradient_bg_hover.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/gradient_bg_hover.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/gradient_bg_hover.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/list_element.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/drawable/list_element.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/list_element.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/drawable/list_element.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/list_element.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/drawable/list_element.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values-v11/styles.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values-v11/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values-v14/styles.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/res/values-v14/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values-v11/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values-v14/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/debug/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values-v11/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values-v11/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values-v14/values.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/build/res/all/release/values-v14/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="c6b1c845-e166-40a4-b8d1-b91fc67b4b50" name="Default" comment="" />
     <ignored path="MediaCodecQuery.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -160,7 +107,16 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="$USER_HOME$/Dropbox Personal/Dropbox/certs/android_playstore.keystore" />
+    <option name="KEY_ALIAS" value="playstorekey" />
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="chinmay" />
+      </list>
+    </option>
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -337,14 +293,20 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
+    <property name="AndroidIncludeSystemProguardFile" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="AndroidProguardConfigPath" value="$PROJECT_DIR$/../../../Android/android-sdk-macosx/tools/proguard/proguard-android.txt" />
+    <property name="ExportedApkPath" value="$PROJECT_DIR$/MediaCodecQuery/MediaCodecQuery.apk" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="ExportedModule" value="MediaCodecQuery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Android/android-sdk-macosx/tools/proguard/proguard-android.txt" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0149BD310D011018" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="AndroidRunProguardForReleaseBuild" value="true" />
     <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -488,6 +450,11 @@
       <created>1370748265755</created>
       <updated>1370748265755</updated>
     </task>
+    <task id="LOCAL-00001" summary="1. new flatter color scheme.&#10;2. moved to dimens file&#10;3. added colors file">
+      <created>1370760019612</created>
+      <updated>1370760019613</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -563,7 +530,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. new flatter color scheme.&#10;2. moved to dimens file&#10;3. added colors file" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -577,6 +544,7 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="1. new flatter color scheme.&#10;2. moved to dimens file&#10;3. added colors file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
