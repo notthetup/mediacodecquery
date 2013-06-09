@@ -2,10 +2,11 @@
 <resources>
 
     <color name="blue">#5569FF</color>
-    <color name="yellow">#FFD67B</color>
-    <color name="title_bg">#C7B1B6</color>
+    <color name="title_bg">#FFD67B</color>
+    <color name="light_yellow">#FFF5DE</color>
+    <color name="pink">#C7B1B6</color>
     <color name="divider">#73C8E8</color>
-    <color name="yellow2">#F2BE5C</color>
+    <color name="yellow">#F2BE5C</color>
     <color name="purple">#999CD9</color>
     <color name="pager_title_bg">#705185</color>
     <color name="something">#8D739F</color>

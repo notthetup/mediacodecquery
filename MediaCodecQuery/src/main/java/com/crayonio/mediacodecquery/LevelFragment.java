@@ -3,7 +3,6 @@ package com.crayonio.mediacodecquery;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.media.MediaCodecInfo.CodecProfileLevel;
 import android.os.Bundle;
@@ -36,9 +35,6 @@ class LevelFragment extends Fragment implements
 	private int cachedCodecIndex = -1;
 
 	private ArrayList<Boolean> profileVerbosity;
-
-	//private Typeface robotoCondensedLight;
-
 	private ListView myListView;
 
 	public void ColorLevelFragment() {
@@ -50,8 +46,6 @@ class LevelFragment extends Fragment implements
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_codec_profile,
 				container, false);
-
-		//robotoCondensedLight = Typeface.createFromAsset(getActivity().getAssets(), "RobotoCondensed-Light.ttf");
 
 		if (rootView != null) {
 			myListView = (ListView) rootView.findViewById(R.id.profile_list);
@@ -114,8 +108,6 @@ class LevelFragment extends Fragment implements
 					if (rowView != null) {
 						TextView profile = (TextView) rowView.findViewById(R.id.profileName);
 						TextView level = (TextView) rowView.findViewById(R.id.levelName);
-						//profile.setTypeface(robotoCondensedLight);
-						//level.setTypeface(robotoCondensedLight);
 
 						if (!thisProfile.getProfileName().startsWith("0x") || profileVerbosity.get(position))
 							profile.setText(thisProfile.getProfileName());

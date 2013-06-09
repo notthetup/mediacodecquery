@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <!-- other activity and action bar styles here -->
     </style>
 
-    <style name="WindowTitleBackground">
-        <item name="android:background">@color/title_bg</item>
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/actionbar_bg</item>
     </style>
 
 </resources>

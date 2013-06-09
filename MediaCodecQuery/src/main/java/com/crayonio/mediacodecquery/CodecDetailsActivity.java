@@ -32,14 +32,10 @@ public class CodecDetailsActivity extends ListActivity implements
 	private int codecIndex = -1;
 	private String[] types;
 
-	//private Typeface robotoCondensedLight;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_details);
-
-		//robotoCondensedLight = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Light.ttf");
 
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
@@ -70,7 +66,6 @@ public class CodecDetailsActivity extends ListActivity implements
 					if (rowView != null) {
 						String entry = types[position];
 						TextView details = (TextView) rowView.findViewById(R.id.codecDetails);
-						//details.setTypeface(robotoCondensedLight);
 						details.setText(entry);
 					}
 

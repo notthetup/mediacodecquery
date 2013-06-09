@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="72dip"
-    android:background="@drawable/list_element"
-    android:orientation="horizontal"
-    android:padding="5dip" >
-
-    <!-- Codec -->
-
-    <TextView
-        android:id="@+id/colorName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:paddingBottom="10dip"
-        android:text="@string/color_name"
-        android:textColor="#040404"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-condensed" />
-    
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/row_height"
+                android:background="@drawable/list_element"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/left_margin"
+                android:paddingLeft="@dimen/left_margin" >
 
     <TextView
-        android:id="@+id/tapPrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:fontFamily="sans-serif-thin"
-        android:paddingStart="5dip"
-        android:paddingLeft="5dip"
-        android:text="@string/tap_prompt"
-        android:textColor="#343434"
-        android:textSize="9sp" />
-    
+            android:id="@+id/colorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/color_name"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/black"/>
+
+
+    <TextView
+            android:id="@+id/tapPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="@dimen/list_row_text_padding_bottom"
+            android:paddingStart="@dimen/tap_prompt_padding"
+            android:paddingLeft="@dimen/tap_prompt_padding"
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/tap_prompt"
+            android:textSize="9sp"
+            android:textColor="@android:color/black"/>
+
 </RelativeLayout>

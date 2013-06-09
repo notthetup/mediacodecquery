@@ -19,28 +19,39 @@ public final class R {
     public static final class color {
         public static final int blue=0x7f050000;
         public static final int divider=0x7f050001;
-        public static final int pager_title_bg=0x7f050002;
-        public static final int purple=0x7f050003;
-        public static final int something=0x7f050004;
-        public static final int title_bg=0x7f050005;
-        public static final int yellow=0x7f050006;
-        public static final int yellow2=0x7f050007;
+        public static final int light_yellow=0x7f050002;
+        public static final int pager_title_bg=0x7f050003;
+        public static final int pink=0x7f050004;
+        public static final int purple=0x7f050005;
+        public static final int something=0x7f050006;
+        public static final int title_bg=0x7f050007;
+        public static final int yellow=0x7f050008;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
+        public static final int divider_height=0x7f060002;
+        public static final int fragment_header_padding=0x7f060003;
+        public static final int left_margin=0x7f060004;
+        public static final int list_row_text_padding_bottom=0x7f060005;
+        public static final int list_row_text_padding_top=0x7f060006;
+        public static final int rhythm_height=0x7f060007;
+        public static final int row_height=0x7f060008;
+        public static final int tap_prompt_padding=0x7f060009;
     }
     public static final class drawable {
-        public static final int codec_both=0x7f020000;
-        public static final int codec_decoder=0x7f020001;
-        public static final int codec_encoder=0x7f020002;
-        public static final int gradient_bg=0x7f020003;
-        public static final int gradient_bg_hover=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int list_element=0x7f020006;
-        public static final int navigation_next_item_dark=0x7f020007;
-        public static final int navigation_next_item_light=0x7f020008;
-        public static final int profile_list_element=0x7f020009;
+        public static final int actionbar_bg=0x7f020000;
+        public static final int app_bg=0x7f020001;
+        public static final int codec_both=0x7f020002;
+        public static final int codec_decoder=0x7f020003;
+        public static final int codec_encoder=0x7f020004;
+        public static final int gradient_bg=0x7f020005;
+        public static final int gradient_bg_hover=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int list_element=0x7f020008;
+        public static final int navigation_next_item_dark=0x7f020009;
+        public static final int navigation_next_item_light=0x7f02000a;
+        public static final int profile_list_element=0x7f02000b;
     }
     public static final class id {
         public static final int action_email=0x7f0a000c;
@@ -104,11 +115,12 @@ public final class R {
             backward-compatibility can go here.
         
  API 11 theme customizations can go here. 
+ other activity and action bar styles here 
          */
         public static final int AppBaseTheme=0x7f080000;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
-        public static final int WindowTitleBackground=0x7f080002;
+        public static final int MyActionBar=0x7f080002;
     }
 }

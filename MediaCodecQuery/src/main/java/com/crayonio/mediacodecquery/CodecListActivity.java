@@ -1,13 +1,11 @@
 package com.crayonio.mediacodecquery;
 
 import java.util.ArrayList;
-
 import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -28,19 +26,15 @@ public class CodecListActivity extends ListActivity implements
 		OnItemClickListener {
 
 	final static String CODEC_INDEX = "codecIndex";
-	//private Typeface robotoCondensedLight;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_codec_list);
 		this.setTitle(getString(R.string.title_activity_codec_list));
+
 		ListView myListView = getListView();
 		myListView.setOnItemClickListener(this);
 		registerForContextMenu(myListView);
-
-		//robotoCondensedLight = Typeface.createFromAsset(getAssets(),
-		//		"RobotoCondensed-Light.ttf");
 
 		final ArrayList<CodecInfo> codecInfoList = CodecInfoList.getCodecInfoList();
 
@@ -57,10 +51,7 @@ public class CodecListActivity extends ListActivity implements
 					CodecInfo entry = codecInfoList.get(position);
 
 					TextView name = (TextView) rowView.findViewById(R.id.codecName);
-					TextView fullName = (TextView) rowView
-							.findViewById(R.id.codecFullName);
-					//name.setTypeface(robotoCondensedLight);
-					//fullName.setTypeface(robotoCondensedLight);
+					TextView fullName = (TextView) rowView.findViewById(R.id.codecFullName);
 
 					name.setText(entry.getCodecName());
 					fullName.setText(entry.getFullName());
@@ -68,19 +59,15 @@ public class CodecListActivity extends ListActivity implements
 					// Log.d("GetView", "Getting rowView " + position + " : " +
 					// rowView.getId());
 
-					ImageView dirImg = (ImageView) rowView
-							.findViewById(R.id.directionImage);
+					ImageView dirImg = (ImageView) rowView.findViewById(R.id.directionImage);
 
 					if (entry.isDecoder() && entry.isEncoder()) {
-						dirImg.setImageDrawable(getResources().getDrawable(
-								R.drawable.codec_both));
+						dirImg.setImageDrawable(getResources().getDrawable(R.drawable.codec_both));
 						// Log.d("GetView", "Setting Image in " + position);
 					} else if (entry.isDecoder()) {
-						dirImg.setImageDrawable(getResources().getDrawable(
-								R.drawable.codec_decoder));
+						dirImg.setImageDrawable(getResources().getDrawable(R.drawable.codec_decoder));
 					} else if (entry.isEncoder()) {
-						dirImg.setImageDrawable(getResources().getDrawable(
-								R.drawable.codec_encoder));
+						dirImg.setImageDrawable(getResources().getDrawable(R.drawable.codec_encoder));
 					} else {
 						dirImg.setImageDrawable(null);
 					}
@@ -96,10 +83,8 @@ public class CodecListActivity extends ListActivity implements
 		// Log.d("OnClick", "Clicked " + arg2 + " " + codecInfoList.get(arg2));
 		Intent intent = new Intent(this, CodecDetailsActivity.class);
 		intent.putExtra(CODEC_INDEX, arg2);
-		Bundle bndlanimation = ActivityOptions.makeCustomAnimation(
-				getApplicationContext(), R.anim.list_activity_slide_enter,
-				R.anim.list_activity_slide_exit).toBundle();
-		startActivity(intent, bndlanimation);
+		Bundle bundleAnimation = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.list_activity_slide_enter,R.anim.list_activity_slide_exit).toBundle();
+		startActivity(intent, bundleAnimation);
 	}
 
 	@Override

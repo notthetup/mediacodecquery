@@ -36,8 +36,6 @@ class ColorFragment extends Fragment implements
 
 	private ArrayList<Boolean> colorVerbosity;
 
-	//private Typeface robotoCondensedLight;
-
 	private ListView myListView;
 
 	public void ColorLevelFragment() {
@@ -49,8 +47,6 @@ class ColorFragment extends Fragment implements
 	                         Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_codec_profile,
 				container, false);
-
-		//robotoCondensedLight = Typeface.createFromAsset(getActivity().getAssets(), "RobotoCondensed-Light.ttf");
 
 		if (rootView != null) {
 			myListView = (ListView) rootView.findViewById(R.id.profile_list);
@@ -109,7 +105,6 @@ class ColorFragment extends Fragment implements
 
 						colorField = (TextView) rowView
 								.findViewById(R.id.colorName);
-						//colorField.setTypeface(robotoCondensedLight);
 
 						if (!thisColorFormat.startsWith("0x")
 								|| colorVerbosity.get(position)) {
