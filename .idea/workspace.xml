@@ -464,7 +464,11 @@
       <created>1370761094919</created>
       <updated>1370761094919</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1. Updated minSdkVersion">
+      <created>1370761107460</created>
+      <updated>1370761107460</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
