@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="72dip"
+    android:background="@drawable/list_element"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    android:gravity="center">
+
+    <TextView
+            android:id="@+id/codecDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            android:text="@string/codec_name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_weight="6"
+            android:fontFamily="sans-serif-condensed" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/navigation_next_item_dark"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="72dip"
+    android:background="@drawable/list_element"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!-- Codec -->
+
+    <TextView
+        android:id="@+id/profileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingBottom="5dip"
+        android:text="@string/profile_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:id="@+id/levelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profileName"
+        android:layout_alignStart="@+id/profileName"
+        android:layout_below="@+id/profileName"
+        android:layout_centerHorizontal="true"
+        android:text="@string/profile_level_name"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-thin"/>
+
+    <TextView
+        android:id="@+id/tapPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="5dip"
+        android:text="@string/tap_prompt"
+        android:fontFamily="sans-serif-thin"
+        android:textSize="9sp" />
+
+</RelativeLayout>
