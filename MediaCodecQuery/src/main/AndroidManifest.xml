@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.crayonio.mediacodecquery"
           android:versionCode="3"
-          android:versionName="1.2"
+          android:versionName="1.3"
           android:installLocation="auto">
 
     <uses-sdk
@@ -40,6 +40,11 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.crayonio.mediacodecquery.CodecDetailsActivity" />
         </activity>
+
+        <meta-data
+                android:name="com.crayonio.mediacodecquery.BUGSENSE_API_KEY"
+                android:value="deadbeef"/>
+
     </application>
 
 </manifest>

@@ -6,6 +6,8 @@ import android.app.ListActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -30,7 +32,15 @@ public class CodecListActivity extends ListActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//BugSenseHandler.initAndStartSession(CodecListActivity.this,"deadbeef");
+
+		/*Setup Bugsense*/
+		try {
+			ActivityInfo app = getPackageManager().getActivityInfo(this.getComponentName(),PackageManager.GET_ACTIVITIES|PackageManager.GET_META_DATA);
+			BugSenseHandler.initAndStartSession(CodecListActivity.this,(String)app.metaData.get("com.crayonio.mediacodecquery.BUGSENSE_API_KEY"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		setContentView(R.layout.activity_codec_list);
 		this.setTitle(getString(R.string.title_activity_codec_list));
 
@@ -153,5 +163,11 @@ public class CodecListActivity extends ListActivity implements
 		} else
 			return super.onContextItemSelected(item);
 
+	}
+
+	@Override
+	protected void onDestroy() {
+		BugSenseHandler.closeSession(CodecListActivity.this);
+		super.onDestroy();
 	}
 }

@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="3" android:versionName="1.2" package="com.crayonio.mediacodecquery">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="3" android:versionName="1.3" package="com.crayonio.mediacodecquery">
 
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="18"/>
 
@@ -17,6 +17,9 @@
         <activity android:label="@string/title_activity_codec_profile" android:name="com.crayonio.mediacodecquery.CodecProfileActivity" android:parentActivityName="com.crayonio.mediacodecquery.CodecDetailsActivity">
             <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.crayonio.mediacodecquery.CodecDetailsActivity"/>
         </activity>
+
+        <meta-data android:name="com.crayonio.mediacodecquery.BUGSENSE_API_KEY" android:value="f1eaa0ad"/>
+
     </application>
 
 </manifest>
