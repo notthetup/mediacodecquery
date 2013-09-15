@@ -123,12 +123,28 @@ class CodecInfo {
 	}
 
 	public CodecCapabilities getCapabilitiesForType(String selectedType) {
-		for (MediaCodecInfo thisCodecInfo : mediaCodecInfoList)
-			if (Arrays.asList(thisCodecInfo.getSupportedTypes()).contains(selectedType))
-				return thisCodecInfo.getCapabilitiesForType(selectedType);
 
-		Log.w("CodecInfo", "Unable to find the selected type. Help!");
-		return null;
+		CodecCapabilities selectedCapability = null;
+
+		for (MediaCodecInfo thisCodecInfo : mediaCodecInfoList)
+			if (Arrays.asList(thisCodecInfo.getSupportedTypes()).contains(selectedType)){
+				try{
+					selectedCapability = thisCodecInfo.getCapabilitiesForType(selectedType);
+				}catch (IllegalArgumentException e){
+					Log.w("CodecInfo", "Error getting capability for the type " + selectedType);
+				}
+				break;
+			}
+
+		if (selectedCapability == null){
+			Log.w("CodecInfo", "Unable to find the selected type. Making up an empty one!");
+			selectedCapability = new CodecCapabilities();
+			selectedCapability.profileLevels = new MediaCodecInfo.CodecProfileLevel[0];
+			selectedCapability.colorFormats = new int[0];
+		}
+
+
+		return selectedCapability;
 	}
 
 

@@ -37,10 +37,6 @@ class LevelFragment extends Fragment implements
 	private ArrayList<Boolean> profileVerbosity;
 	private ListView myListView;
 
-	public void ColorLevelFragment() {
-
-	}
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	                         Bundle savedInstanceState) {
@@ -63,11 +59,11 @@ class LevelFragment extends Fragment implements
 			if (cachedCodecIndex != codecIndex) {
 
 				CodecInfo thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
-				CodecCapabilities capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
-				profileLevels = capabalities.profileLevels;
+				CodecCapabilities capabilities = thisCodecInfo.getCapabilitiesForType(selectedType);
+				profileLevels = capabilities.profileLevels;
 				cachedCodecIndex = codecIndex;
 
-				Boolean[] array = new Boolean[capabalities.profileLevels.length];
+				Boolean[] array = new Boolean[profileLevels.length];
 				Arrays.fill(array, Boolean.FALSE);
 				profileVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
 			}

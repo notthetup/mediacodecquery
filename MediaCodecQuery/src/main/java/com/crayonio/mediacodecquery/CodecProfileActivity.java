@@ -83,10 +83,10 @@ public class CodecProfileActivity extends FragmentActivity {
 				CodecInfo thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
 				CodecProfileLevelTranslator profileTranslator = CodecProfileLevelTranslator.getInstance();
 				CodecColorFormatTranslator colorTranslator = CodecColorFormatTranslator.getInstance();
-				CodecCapabilities capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
-				CodecProfileLevel[] profileLevels = capabalities.profileLevels;
-				int[] colorFormats = capabalities.colorFormats;
+				CodecCapabilities capabilities = thisCodecInfo.getCapabilitiesForType(selectedType);
 
+				CodecProfileLevel[] profileLevels = capabilities.profileLevels;
+				int[] colorFormats = capabilities.colorFormats;
 
 				String codecName = CodecInfoList.getCodecInfoList().get(codecIndex).getCodecName();
 

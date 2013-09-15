@@ -60,11 +60,11 @@ class ColorFragment extends Fragment implements
 			if (cachedCodecIndex != codecIndex) {
 
 				CodecInfo thisCodecInfo = CodecInfoList.getCodecInfoList().get(codecIndex);
-				CodecCapabilities capabalities = thisCodecInfo.getCapabilitiesForType(selectedType);
-				colorFormats = capabalities.colorFormats;
+				CodecCapabilities capabilities = thisCodecInfo.getCapabilitiesForType(selectedType);
+				colorFormats = capabilities.colorFormats;
 				cachedCodecIndex = codecIndex;
 
-				Boolean[] array = new Boolean[capabalities.colorFormats.length];
+				Boolean[] array = new Boolean[colorFormats.length];
 				Arrays.fill(array, Boolean.FALSE);
 				colorVerbosity = new ArrayList<Boolean>(Arrays.asList(array));
 			}
