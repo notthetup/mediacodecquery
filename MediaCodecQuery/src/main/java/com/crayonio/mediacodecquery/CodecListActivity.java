@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.bugsense.trace.BugSenseHandler;
 
 public class CodecListActivity extends ListActivity implements
 		OnItemClickListener {
@@ -29,6 +30,7 @@ public class CodecListActivity extends ListActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//BugSenseHandler.initAndStartSession(CodecListActivity.this,"deadbeef");
 		setContentView(R.layout.activity_codec_list);
 		this.setTitle(getString(R.string.title_activity_codec_list));
 
