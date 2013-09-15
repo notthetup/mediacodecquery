@@ -24,4 +24,4 @@
             android:layout_alignParentEnd="true"
             android:layout_below="@android:id/list" />
 
-</RelativeLayout>
+</RelativeLayout><!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/layout/activity_codec_details.xml -->

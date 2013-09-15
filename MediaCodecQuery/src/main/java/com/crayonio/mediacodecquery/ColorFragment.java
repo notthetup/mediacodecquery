@@ -3,7 +3,6 @@ package com.crayonio.mediacodecquery;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.graphics.Typeface;
 import android.media.MediaCodecInfo.CodecCapabilities;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,10 +36,6 @@ class ColorFragment extends Fragment implements
 	private ArrayList<Boolean> colorVerbosity;
 
 	private ListView myListView;
-
-	public void ColorLevelFragment() {
-
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

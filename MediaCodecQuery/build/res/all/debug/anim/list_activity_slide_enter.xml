@@ -3,3 +3,4 @@
     android:duration="300"
     android:fromXDelta="100%"
     android:toXDelta="0" />
+<!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/anim/list_activity_slide_enter.xml -->

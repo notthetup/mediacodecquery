@@ -31,4 +31,4 @@
         android:text="@string/tap_prompt"
         android:textSize="9sp" />
     
-</RelativeLayout>
+</RelativeLayout><!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/layout-land/codec_color_row.xml -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values-v14/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <!-- other activity and action bar styles here -->

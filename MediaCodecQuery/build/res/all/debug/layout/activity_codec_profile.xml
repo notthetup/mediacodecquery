@@ -17,4 +17,4 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
 
-</android.support.v4.view.ViewPager>
+</android.support.v4.view.ViewPager><!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/layout/activity_codec_profile.xml -->

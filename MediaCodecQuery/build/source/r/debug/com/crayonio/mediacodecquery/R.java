@@ -17,6 +17,8 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        /**  From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/colors.xml 
+         */
         public static final int blue=0x7f050000;
         public static final int divider=0x7f050001;
         public static final int light_yellow=0x7f050002;
@@ -28,6 +30,8 @@ public final class R {
         public static final int yellow=0x7f050008;
     }
     public static final class dimen {
+        /**  From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/dimens.xml 
+         */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
         public static final int divider_height=0x7f060002;
@@ -82,6 +86,8 @@ public final class R {
         public static final int settings_menu=0x7f090000;
     }
     public static final class string {
+        /**  From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/strings.xml 
+         */
         public static final int action_email=0x7f070000;
         public static final int app_name=0x7f070001;
         public static final int codec_fullname=0x7f070002;
@@ -109,12 +115,15 @@ public final class R {
         public static final int version_name=0x7f070018;
     }
     public static final class style {
-        /** 
+        /**  From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values/styles.xml 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
+ From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
+ From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/values-v14/styles.xml 
  other activity and action bar styles here 
          */
         public static final int AppBaseTheme=0x7f080000;

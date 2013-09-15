@@ -3,3 +3,4 @@
     android:duration="300"
     android:fromXDelta="0"
     android:toXDelta="20%" />
+<!-- From: file:/Users/chinmay/Documents/Misc/android/MediaCodecQueryProject/MediaCodecQuery/src/main/res/anim/list_activity_slide_exit.xml -->

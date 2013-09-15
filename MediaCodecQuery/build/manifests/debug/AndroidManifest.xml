@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="3" android:versionName="1.2" package="com.crayonio.mediacodecquery">
 
-    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="17"/>
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="18"/>
 
     <application android:allowBackup="true" android:allowClearUserData="true" android:allowTaskReparenting="false" android:description="@string/description" android:enabled="true" android:hasCode="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="false" android:logo="@drawable/ic_launcher" android:persistent="false" android:supportsRtl="false" android:theme="@style/AppTheme">
         <activity android:label="@string/app_name" android:name="com.crayonio.mediacodecquery.CodecListActivity">
