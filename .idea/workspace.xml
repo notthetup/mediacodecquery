@@ -11,13 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd7d1e2c-1398-4e4e-8b9f-df1a177091f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MediaCodecQuery/libs/bugsense-3.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/bugsense_3_5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java" afterPath="$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MediaCodecQuery/MediaCodecQuery.iml" afterPath="$PROJECT_DIR$/MediaCodecQuery/MediaCodecQuery.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MediaCodecQuery.iws" />
@@ -81,64 +75,7 @@
     <favorites_list name="MediaCodecQuery" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CodecProfileActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecProfileActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="63" selection-start="3035" selection-end="3035" vertical-scroll-proportion="0.0" vertical-offset="1584" max-vertical-offset="3708">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodecInfoList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecInfoList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="6" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodecInfo.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="0" selection-start="3284" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="2214" max-vertical-offset="2826">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodecListActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="78" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.7843803" vertical-offset="114" max-vertical-offset="2934">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="576">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="66" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -625,62 +562,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQueryProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mediacodecquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQueryProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MediaCodecQuery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -880,7 +761,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -893,13 +774,13 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32791728" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06942393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06942393" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32880846" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24554294" sideWeight="0.9305761" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24554294" sideWeight="0.9305761" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32791728" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -924,9 +805,7 @@
     <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="61" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.0" vertical-offset="277" max-vertical-offset="2934">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -996,9 +875,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecProfileActivity.java">
+    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="63" selection-start="3035" selection-end="3035" vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="3474">
+        <state line="22" column="28" selection-start="771" selection-end="771" vertical-scroll-proportion="0.44339624" vertical-offset="114" max-vertical-offset="2934">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="3284" selection-end="3284" vertical-scroll-proportion="0.03773585" vertical-offset="2190" max-vertical-offset="2826">
           <folding />
         </state>
       </provider>
@@ -1010,9 +896,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecInfo.java">
+    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="0" selection-start="3284" selection-end="3284" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2718">
+        <state line="88" column="63" selection-start="3035" selection-end="3035" vertical-scroll-proportion="-0.36792454" vertical-offset="1584" max-vertical-offset="3474">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="23" selection-start="169" selection-end="169" vertical-scroll-proportion="0.22187981" vertical-offset="0" max-vertical-offset="649">
           <folding />
         </state>
       </provider>
@@ -1021,22 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="66" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="169" selection-end="169" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MediaCodecQuery/src/main/java/com/crayonio/mediacodecquery/CodecListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="78" selection-start="1128" selection-end="1128" vertical-scroll-proportion="0.7843803" vertical-offset="114" max-vertical-offset="2934">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
