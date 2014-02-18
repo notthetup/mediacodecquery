@@ -35,3 +35,4 @@ proguard/
 .gradle/
 
 */build/
+playstore_builds/
