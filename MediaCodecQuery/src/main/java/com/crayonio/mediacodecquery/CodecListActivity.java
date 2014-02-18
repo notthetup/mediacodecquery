@@ -1,12 +1,11 @@
 package com.crayonio.mediacodecquery;
 
-import java.util.ArrayList;
 import android.app.ActivityOptions;
 import android.app.ListActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -23,7 +22,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.bugsense.trace.BugSenseHandler;
+
+import java.util.ArrayList;
 
 public class CodecListActivity extends ListActivity implements
 		OnItemClickListener {
@@ -35,8 +37,8 @@ public class CodecListActivity extends ListActivity implements
 
 		/*Setup Bugsense*/
 		try {
-			ActivityInfo app = getPackageManager().getActivityInfo(this.getComponentName(),PackageManager.GET_ACTIVITIES|PackageManager.GET_META_DATA);
-			BugSenseHandler.initAndStartSession(CodecListActivity.this,(String)app.metaData.get("com.crayonio.mediacodecquery.BUGSENSE_API_KEY"));
+			ApplicationInfo app = getPackageManager().getApplicationInfo(this.getPackageName(), PackageManager.GET_ACTIVITIES | PackageManager.GET_META_DATA);
+			BugSenseHandler.initAndStartSession(CodecListActivity.this, (String) app.metaData.get("com.crayonio.mediacodecquery.BUGSENSE_API_KEY"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
