@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class ColorFragment extends Fragment implements
+public class ColorFragment extends Fragment implements
 		OnItemClickListener {
 
 	/**
