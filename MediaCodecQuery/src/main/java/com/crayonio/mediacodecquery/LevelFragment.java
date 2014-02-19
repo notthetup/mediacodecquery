@@ -24,7 +24,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class LevelFragment extends Fragment implements
+public class LevelFragment extends Fragment implements
 		OnItemClickListener {
 
 	/**
