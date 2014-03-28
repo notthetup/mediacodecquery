@@ -72,18 +72,20 @@ public class LevelFragment extends Fragment implements
 
 			final ArrayList<CodecProfileStrings> codecProfileStrings = new ArrayList<CodecProfileStrings>();
 
-			for (CodecProfileLevel thisProfile : profileLevels) {
-				String translatedProfile = profileTranslator.getProfile(thisProfile.profile);
-				if (translatedProfile == null)
-					translatedProfile = (String.valueOf(thisProfile.profile));
+			if (profileLevels != null) {
+				for (CodecProfileLevel thisProfile : profileLevels) {
+					String translatedProfile = profileTranslator.getProfile(thisProfile.profile);
+					if (translatedProfile == null)
+						translatedProfile = (String.valueOf(thisProfile.profile));
 
-				String translatedLevel = profileTranslator
-						.getLevel(thisProfile.level);
-				if (translatedLevel == null)
-					translatedLevel = ("0x" + Integer.toHexString(thisProfile.level));
+					String translatedLevel = profileTranslator
+							.getLevel(thisProfile.level);
+					if (translatedLevel == null)
+						translatedLevel = ("0x" + Integer.toHexString(thisProfile.level));
 
-				codecProfileStrings.add(new CodecProfileStrings(
-						translatedProfile, translatedLevel));
+					codecProfileStrings.add(new CodecProfileStrings(
+							translatedProfile, translatedLevel));
+				}
 			}
 
 			myListView.setAdapter(new ArrayAdapter<CodecProfileStrings>(
