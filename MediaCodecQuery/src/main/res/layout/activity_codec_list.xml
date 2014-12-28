@@ -7,7 +7,8 @@
             android:id="@android:id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:divider="@color/divider"
+            android:background="@android:color/white"
+            android:divider="@drawable/list_divider"
             android:dividerHeight="@dimen/divider_height"
             android:listSelector="@drawable/list_element"
             android:footerDividersEnabled="true">

@@ -14,7 +14,7 @@
             android:background="@color/pager_title_bg"
             android:paddingBottom="@dimen/fragment_header_padding"
             android:paddingTop="@dimen/fragment_header_padding"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="18sp" />
 
 </android.support.v4.view.ViewPager>

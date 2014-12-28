@@ -141,12 +141,13 @@ public class LevelFragment extends Fragment implements
 
 	}
 
-
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("Options..");
-		menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo) menuInfo).position, 0, getString(R.string.copy) + getString(R.string.copy_profile_name));
-		menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo) menuInfo).position, 1, getString(R.string.copy) + getString(R.string.copy_profile_level));
+        if (profileLevels.length > 0) {
+            menu.setHeaderTitle("Options..");
+            menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo) menuInfo).position, 0, getString(R.string.copy) + getString(R.string.copy_profile_name));
+            menu.add(ContextMenu.NONE, ((AdapterContextMenuInfo) menuInfo).position, 1, getString(R.string.copy) + getString(R.string.copy_profile_level));
+        }
 	}
 
 	public boolean onContextItemSelected(MenuItem item) {
@@ -157,7 +158,7 @@ public class LevelFragment extends Fragment implements
 			String translatedProfile = profileTranslator.getProfile(profileLevels[item.getItemId()].profile);
 			ClipData clip = ClipData.newPlainText("label", translatedProfile);
 			clipboard.setPrimaryClip(clip);
-			Toast.makeText(myContext, getString(R.string.copy_profile_name) + getString(R.string.copied), Toast.LENGTH_SHORT).show();
+			Toast.makeText(myContext, getString(R.string.copy_profile_name) + " " + getString(R.string.copied), Toast.LENGTH_SHORT).show();
 			return true;
 		} else if (item.getOrder() == 1) {
 			Context myContext = this.getActivity().getBaseContext();
@@ -166,7 +167,7 @@ public class LevelFragment extends Fragment implements
 			String translatedProfile = profileTranslator.getLevel(profileLevels[item.getItemId()].level);
 			ClipData clip = ClipData.newPlainText("label", translatedProfile);
 			clipboard.setPrimaryClip(clip);
-			Toast.makeText(myContext, getString(R.string.copy_profile_level) + getString(R.string.copied), Toast.LENGTH_SHORT).show();
+			Toast.makeText(myContext, getString(R.string.copy_profile_level)  + " "+ getString(R.string.copied), Toast.LENGTH_SHORT).show();
 			return true;
 		} else
 
