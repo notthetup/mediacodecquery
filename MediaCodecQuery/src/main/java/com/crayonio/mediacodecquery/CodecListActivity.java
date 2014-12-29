@@ -23,7 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bugsense.trace.BugSenseHandler;
+import com.splunk.mint.Mint;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class CodecListActivity extends ListActivity implements
 		/*Setup Bugsense*/
 		try {
 			ApplicationInfo app = getPackageManager().getApplicationInfo(this.getPackageName(), PackageManager.GET_ACTIVITIES | PackageManager.GET_META_DATA);
-			BugSenseHandler.initAndStartSession(CodecListActivity.this, (String) app.metaData.get("com.crayonio.mediacodecquery.BUGSENSE_API_KEY"));
+            Mint.initAndStartSession(CodecListActivity.this, (String) app.metaData.get("com.crayonio.mediacodecquery.BUGSENSE_API_KEY"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -169,7 +169,7 @@ public class CodecListActivity extends ListActivity implements
 
 	@Override
 	protected void onDestroy() {
-		BugSenseHandler.closeSession(CodecListActivity.this);
+		Mint.closeSession(CodecListActivity.this);
 		super.onDestroy();
 	}
 }
