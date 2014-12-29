@@ -37,3 +37,4 @@ proguard/
 */build/
 build/
 playstore_builds/
+*.zip

@@ -23,10 +23,12 @@ class CodecInfoList {
 	private static ArrayList<CodecInfo> generateCodecInfoList() {
 
 		ArrayList<CodecInfo> codecInfoList = new ArrayList<CodecInfo>();
+        MediaCodecInfo[] allCodecs = new MediaCodecList(MediaCodecList.ALL_CODECS).getCodecInfos();
+
 
 		// Log.d("CodecListActivity", " This device supports");
-		for (int codecIndex = 0; codecIndex < MediaCodecList.getCodecCount(); ++codecIndex) {
-			addtoCodecList(MediaCodecList.getCodecInfoAt(codecIndex), codecInfoList);
+		for (int codecIndex = 0; codecIndex < allCodecs.length; ++codecIndex) {
+			addtoCodecList(allCodecs[codecIndex], codecInfoList);
 		}
 		return codecInfoList;
 	}
